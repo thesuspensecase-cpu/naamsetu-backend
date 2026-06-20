@@ -17,16 +17,14 @@ app.get('/', (req, res) => {
   });
 });
 
+// Existing endpoint - Find Shlok
 app.post('/find-shlok', async (req, res) => {
   const { userProblem } = req.body;
 
   console.log('📥 Received request');
   console.log('📝 User problem:', userProblem);
-  console.log('🔑 API Key exists:', !!GROQ_API_KEY);
 
-  // Validate input
   if (!userProblem || userProblem.trim().length === 0) {
-    console.log('❌ Empty problem');
     return res.status(400).json({ 
       success: false, 
       error: "Please describe your problem" 
@@ -34,7 +32,6 @@ app.post('/find-shlok', async (req, res) => {
   }
 
   if (userProblem.length > 500) {
-    console.log('❌ Problem too long');
     return res.status(400).json({ 
       success: false, 
       error: "Problem too long (max 500 characters)" 
@@ -42,13 +39,10 @@ app.post('/find-shlok', async (req, res) => {
   }
 
   try {
-    console.log('🚀 Calling Groq API...');
-    
-    // Call Groq API with correct model
     const response = await axios.post(
       'https://api.groq.com/openai/v1/chat/completions',
       {
-        model: "llama-3.3-70b-versatile",  // ✅ Updated model
+        model: "llama-3.3-70b-versatile",
         messages: [
           {
             role: "system",
@@ -56,15 +50,12 @@ app.post('/find-shlok', async (req, res) => {
 
 User will describe their problem. You must find the SINGLE best matching shlok from the 700 shlokas.
 
-Respond ONLY with valid JSON (no markdown, no explanation, no text before or after):
+Respond ONLY with valid JSON (no markdown, no explanation):
 {
   "chapter": <integer 1-18>,
   "verse": <integer>,
   "confidence": <integer 0-100>
 }
-
-Example response:
-{"chapter": 2, "verse": 47, "confidence": 95}
 
 ONLY JSON, nothing else!`
           },
@@ -81,30 +72,13 @@ ONLY JSON, nothing else!`
           'Authorization': `Bearer ${GROQ_API_KEY}`,
           'Content-Type': 'application/json'
         },
-        timeout: 10000 // 10 seconds timeout
+        timeout: 10000
       }
     );
 
-    console.log('✅ Groq API response received');
-    console.log('Status:', response.status);
-
     const groqText = response.data.choices[0].message.content.trim();
-    console.log('📄 Raw response:', groqText);
-    
-    // Remove markdown code blocks if present
     const cleanText = groqText.replace(/```json/g, '').replace(/```/g, '').trim();
-    console.log('🧹 Cleaned response:', cleanText);
-    
     const shlokMatch = JSON.parse(cleanText);
-    console.log('📊 Parsed:', shlokMatch);
-
-    // Validate response
-    if (!shlokMatch.chapter || !shlokMatch.verse) {
-      console.log('❌ Invalid response structure');
-      throw new Error('Invalid response from AI');
-    }
-
-    console.log(`✅ Success! Chapter ${shlokMatch.chapter}, Verse ${shlokMatch.verse}`);
 
     res.json({
       success: true,
@@ -114,23 +88,119 @@ ONLY JSON, nothing else!`
     });
 
   } catch (error) {
-    console.error('❌ ERROR in /find-shlok:');
-    console.error('Message:', error.message);
-    
-    if (error.response) {
-      console.error('Status:', error.response.status);
-      console.error('Data:', error.response.data);
-    } else if (error.request) {
-      console.error('No response received');
-    }
-    
+    console.error('❌ ERROR:', error.message);
     res.status(500).json({ 
       success: false, 
-      error: error.message || "Could not find matching shlok. Please try again.",
-      timestamp: new Date().toISOString()
+      error: error.message || "Could not find matching shlok"
     });
   }
 });
+
+// NEW ENDPOINT - Get Human-like Answer from Grok
+app.post('/grok/answer', async (req, res) => {
+  const { userProblem, shlokSanskrit, shlokHindi } = req.body;
+
+  console.log('🎭 Grok Answer Request');
+  console.log('Problem:', userProblem);
+
+  // Validate input
+  if (!userProblem || !shlokSanskrit || !shlokHindi) {
+    return res.status(400).json({
+      success: false,
+      error: "Missing required fields"
+    });
+  }
+
+  try {
+    // Call Grok with Krishna persona
+    const grokResponse = await axios.post(
+      'https://api.groq.com/openai/v1/chat/completions',
+      {
+        model: "llama-3.3-70b-versatile",
+        messages: [
+          {
+            role: "system",
+            content: `You are Krishna from Bhagavad Gita. A devotee has a problem and you must give them wise, warm, human-like guidance.
+
+The shloka related to their problem is:
+Sanskrit: ${shlokSanskrit}
+Hindi: ${shlokHindi}
+
+Your guidance should:
+1. Be conversational and warm (like talking to a friend)
+2. Acknowledge their problem with empathy
+3. Explain how the shloka relates to their situation
+4. Give practical, actionable advice (2-3 lines)
+5. Include 2-3 inspiring quotes or metaphors from Krishna's perspective
+6. Use mixed Hindi-English language (conversational, not formal)
+7. End with motivation and hope
+
+Format:
+- First paragraph: Acknowledge problem warmly
+- Middle paragraphs: Explain shloka relation + practical advice
+- Include 2-3 highlight-worthy quotes (these will be shown in boxes)
+- Last paragraph: Motivational closure
+
+Language: Hindi-English mix (Hinglish), conversational tone, like a wise mentor.`
+          },
+          {
+            role: "user",
+            content: `My problem: ${userProblem}
+
+Please give me Krishna's guidance based on this shloka. Make it personal, warm, and practical.`
+          }
+        ],
+        temperature: 0.7,
+        max_tokens: 1000
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${GROQ_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        timeout: 15000
+      }
+    );
+
+    const answer = grokResponse.data.choices[0].message.content.trim();
+    
+    // Extract highlights (quotes)
+    const highlights = extractHighlights(answer);
+
+    console.log('✅ Grok Answer Generated');
+
+    res.json({
+      success: true,
+      answer: answer,
+      highlights: highlights
+    });
+
+  } catch (error) {
+    console.error('❌ Grok Error:', error.message);
+    res.status(500).json({
+      success: false,
+      error: "Could not generate answer"
+    });
+  }
+});
+
+// Helper function to extract highlights
+function extractHighlights(text) {
+  const lines = text.split('\n').filter(line => line.trim().length > 0);
+  const highlights = [];
+
+  lines.forEach(line => {
+    if (
+      (line.includes('"') && line.length > 50) ||
+      line.startsWith('"') ||
+      (line.length > 60 && (line.includes('तो') || line.includes('तुम्हें')))
+    ) {
+      highlights.push(line.trim().replace(/"/g, ''));
+    }
+  });
+
+  return highlights.slice(0, 3);
+}
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
