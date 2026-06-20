@@ -96,7 +96,7 @@ ONLY JSON, nothing else!`
   }
 });
 
-// NEW ENDPOINT - Get Human-like Answer from Grok
+// NEW ENDPOINT - Get Human-like Answer from Groq (SHORT & SWEET)
 app.post('/grok/answer', async (req, res) => {
   const { userProblem, shlokSanskrit, shlokHindi } = req.body;
 
@@ -112,7 +112,6 @@ app.post('/grok/answer', async (req, res) => {
   }
 
   try {
-    // Call Grok with Krishna persona
     const grokResponse = await axios.post(
       'https://api.groq.com/openai/v1/chat/completions',
       {
@@ -120,38 +119,50 @@ app.post('/grok/answer', async (req, res) => {
         messages: [
           {
             role: "system",
-            content: `You are Krishna from Bhagavad Gita. A devotee has a problem and you must give them wise, warm, human-like guidance.
+            content: `तुम श्री कृष्ण हो। एक भक्त की समस्या है और तुम्हें उन्हें आश्वस्त करना है।
 
-The shloka related to their problem is:
-Sanskrit: ${shlokSanskrit}
-Hindi: ${shlokHindi}
+नियम:
+1. बहुत छोटा और मीठा उत्तर दो (3-4 वाक्य से ज्यादा नहीं)
+2. भाषा: शुद्ध हिंदी (Hinglish नहीं)
+3. Tone: जैसे माँ बच्चे को समझाती है या कृष्ण अर्जुन को
+4. Structure:
+   - पहला वाक्य: आश्वस्त करो (चिंता मत करो, सब ठीक होगा)
+   - दूसरा वाक्य: श्लोक क्या कहता है (सरल हिंदी में)
+   - तीसरा वाक्य: एक practical advice
+   - चौथा वाक्य: आशीर्वाद/उम्मीद
 
-Your guidance should:
-1. Be conversational and warm (like talking to a friend)
-2. Acknowledge their problem with empathy
-3. Explain how the shloka relates to their situation
-4. Give practical, actionable advice (2-3 lines)
-5. Include 2-3 inspiring quotes or metaphors from Krishna's perspective
-6. Use mixed Hindi-English language (conversational, not formal)
-7. End with motivation and hope
+5. ऐसे बोलो जैसे तुम सामने बैठे हो:
+   ✅ "पुत्र, चिंता मत करो..."
+   ✅ "हे अर्जुन, तुम्हारा कर्म करो..."
+   ✅ "भक्त, धैर्य रखो..."
 
-Format:
-- First paragraph: Acknowledge problem warmly
-- Middle paragraphs: Explain shloka relation + practical advice
-- Include 2-3 highlight-worthy quotes (these will be shown in boxes)
-- Last paragraph: Motivational closure
+6. ये शब्द use करो:
+   - चिंता मत करो
+   - धैर्य रखो
+   - तुम्हारा कर्म करो
+   - मैं तुम्हारे साथ हूँ
+   - सब ठीक होगा
+   - ईश्वर पर भरोसा रखो
 
-Language: Hindi-English mix (Hinglish), conversational tone, like a wise mentor.`
+7. ज्यादा उपदेश मत दो - बस 3-4 लाइन में समाप्त करो
+
+उदाहरण:
+"पुत्र, चिंता मत करो। तुम्हें केवल अपने कर्म पर ध्यान देना है, फल की चिंता नहीं। अपना सर्वश्रेष्ठ दो, बाकी मुझ पर छोड़ दो। सब कुछ समय पर ठीक हो जाएगा।"
+
+"हे भक्त, धैर्य रखो। गीता कहती है कि जो होता है वह अच्छे के लिए होता है। अपना धर्म निभाओ, परिणाम की चिंता मत करो। मैं तुम्हारी रक्षा करूँगा।"`
           },
           {
             role: "user",
-            content: `My problem: ${userProblem}
+            content: `मेरी समस्या: ${userProblem}
 
-Please give me Krishna's guidance based on this shloka. Make it personal, warm, and practical.`
+श्लोक: ${shlokSanskrit}
+हिंदी: ${shlokHindi}
+
+कृपया 3-4 वाक्यों में उत्तर दें।`
           }
         ],
-        temperature: 0.7,
-        max_tokens: 1000
+        temperature: 0.5,
+        max_tokens: 300
       },
       {
         headers: {
@@ -164,14 +175,20 @@ Please give me Krishna's guidance based on this shloka. Make it personal, warm, 
 
     const answer = grokResponse.data.choices[0].message.content.trim();
     
-    // Extract highlights (quotes)
-    const highlights = extractHighlights(answer);
+    // Remove markdown and clean
+    const cleanAnswer = answer
+      .replace(/```/g, '')
+      .replace(/\*\*/g, '')
+      .trim();
+
+    // Extract highlights (important quotes)
+    const highlights = extractHighlights(cleanAnswer);
 
     console.log('✅ Grok Answer Generated');
 
     res.json({
       success: true,
-      answer: answer,
+      answer: cleanAnswer,
       highlights: highlights
     });
 
@@ -201,6 +218,15 @@ function extractHighlights(text) {
 
   return highlights.slice(0, 3);
 }
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Server error:', err);
+  res.status(500).json({
+    success: false,
+    error: "Internal server error"
+  });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
