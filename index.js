@@ -22,7 +22,7 @@ app.post('/find-shlok', async (req, res) => {
   const { userProblem } = req.body;
 
   console.log('📥 Received request');
-  console.log('📝 User problem:', userProblem);
+  console.log(' User problem:', userProblem);
 
   if (!userProblem || userProblem.trim().length === 0) {
     return res.status(400).json({ 
@@ -96,7 +96,7 @@ ONLY JSON, nothing else!`
   }
 });
 
-// Endpoint 2 - Get Human-like Answer from Groq (SHORT, PERSONALIZED, HINDI)
+// Endpoint 2 - Get Human-like Answer + Personalized Tips
 app.post('/grok/answer', async (req, res) => {
   const { userProblem, shlokSanskrit, shlokHindi } = req.body;
 
@@ -123,40 +123,19 @@ app.post('/grok/answer', async (req, res) => {
 
 IMPORTANT RULES:
 1. पहली लाइन में USER की SPECIFIC समस्या का जिक्र करो
-   ✅ "पुत्र, तुम्हारी शादी की चिंता..."
-   ✅ "भक्त, तुम्हारा करियर का तनाव..."
-   ✅ "हे अर्जुन, तुम्हारी पारिवारिक समस्या..."
-   
 2. फिर श्लोक से जोड़ो
 3. Practical advice दो
 4. आशीर्वाद दो
 
-5. भाषा: शुद्ध हिंदी (Hinglish नहीं)
+5. भाषा: शुद्ध हिंदी
 6. Length: 3-4 वाक्य max
 7. Tone: व्यक्तिगत, गर्म, आश्वस्त करने वाला
 
 STRUCTURE:
 वाक्य 1: "पुत्र/भक्त, तुम्हारी [USER की SPECIFIC problem] की चिंता मैं समझता हूँ..."
 वाक्य 2: इस श्लोक में कहा गया है... [श्लोक का सार]
-वाक्य 3: इसलिए तुम... [specific advice for THEIR problem]
-वाक्य 4: [आशीर्वाद]
-
-HIGHLIGHTS के लिए अलग-अलग important quotes निकालो:
-- Main answer में full explanation दो
-- Highlights में सिर्फ powerful one-liners (2-3 quotes)
-- Highlights answer से अलग होने चाहिए
-- Quotes short और impactful हों
-
-EXAMPLE:
-User Problem: "मुझे शादी में बहुत देरी हो रही है, मैं perfect नहीं हूँ"
-
-Answer:
-"पुत्र, तुम्हारी शादी की चिंता व्यर्थ है। इस श्लोक में कहा गया है कि तुम्हें केवल अपने कर्म पर ध्यान देना है, फल की नहीं। इसलिए स्वयं को शुद्ध करो, अपना धर्म निभाओ। जब तुम तैयार होगे, मैं स्वयं व्यवस्था करूँगा।"
-
-Highlights:
-- "तुम्हें केवल अपने कर्म पर ध्यान देना है, फल की नहीं"
-- "जब तुम तैयार होगे, मैं स्वयं व्यवस्था करूँगा"
-- "स्वयं को शुद्ध करो, अपना धर्म निभाओ"`
+वाक्य 3: इसलिए तुम... [specific advice]
+वाक्य 4: [आशीर्वाद]`
           },
           {
             role: "user",
@@ -165,7 +144,7 @@ Highlights:
 श्लोक: ${shlokSanskrit}
 हिंदी: ${shlokHindi}
 
-कृपया 3-4 वाक्यों में उत्तर दें। अपनी समस्या का जिक्र जरूर करें।`
+कृपया 3-4 वाक्यों में उत्तर दें।`
           }
         ],
         temperature: 0.5,
@@ -188,15 +167,15 @@ Highlights:
       .replace(/\*\*/g, '')
       .trim();
 
-    // Extract highlights (important quotes) - different from main answer
-    const highlights = extractHighlights(cleanAnswer);
+    // Generate personalized tips
+    const tips = generatePersonalizedTips(userProblem);
 
     console.log('✅ Grok Answer Generated');
 
     res.json({
       success: true,
       answer: cleanAnswer,
-      highlights: highlights
+      tips: tips
     });
 
   } catch (error) {
@@ -208,22 +187,76 @@ Highlights:
   }
 });
 
-// Helper function to extract highlights
-function extractHighlights(text) {
-  const lines = text.split('\n').filter(line => line.trim().length > 0);
-  const highlights = [];
+// Helper function to generate personalized tips with Jap motivation
+function generatePersonalizedTips(problem) {
+  const tips = [];
+  const problemLower = problem.toLowerCase();
 
-  lines.forEach(line => {
-    if (
-      (line.includes('"') && line.length > 50) ||
-      line.startsWith('"') ||
-      (line.length > 60 && (line.includes('तो') || line.includes('तुम्हें')))
-    ) {
-      highlights.push(line.trim().replace(/"/g, ''));
-    }
-  });
+  // Random number for variety
+  const randomNum = Math.floor(Math.random() * 100);
 
-  return highlights.slice(0, 3);
+  // Tip 1: Jap motivation (always include)
+  const japTips = [
+    "️ अभी NaamSetu app खोलो और 108 बार नाम जाप करो - तुम्हारी समस्या का समाधान होगा",
+    " आज 1008 बार जाप का संकल्प लो - यह तुम्हारे लिए चमत्कार लाएगा",
+    "🙏 रोज 108 बार जाप करो - धीरे-धीरे सब ठीक होता जाएगा",
+    "✨ अभी 21 बार जाप करो और देखो कैसे मन शांत होता है",
+    " 108 बार जाप सबसे पवित्र होता है - अभी शुरू करो"
+  ];
+
+  // Tip 2: Share dharma with others
+  const shareTips = [
+    "👥 अपने किसी प्रियजन को भी जाप करने के लिए प्रेरित करो - इससे तुम्हारा पुण्य बढ़ेगा",
+    "💫 किसी मित्र को NaamSetu app के बारे में बताओ - दूसरों को धर्म की राह पर लाना सबसे बड़ा पुण्य है",
+    " अपने परिवार को जाप के लिए प्रोत्साहित करो - साथ मिलकर जाप करने से शक्ति बढ़ती है",
+    "🌟 आज किसी एक व्यक्ति को जाप करने के लिए कहो - यह तुम्हारा सबसे बड़ा उपकार होगा",
+    "📱 अपने दोस्तों को यह app share करो - दूसरों की मदद करने से तुम्हारी मदद होगी"
+  ];
+
+  // Tip 3: Punya benefits
+  const punyaTips = [
+    "🎯 किसी को नाम जप करवाना सबसे बड़ा पुण्य है - आज कोई एक व्यक्ति ज़रूर प्रेरित करो",
+    "💎 जब तुम दूसरों को धर्म की राह पर लाते हो, तो तुम्हारे सभी पाप नष्ट हो जाते हैं",
+    " एक व्यक्ति को जाप सिखाना = 100 यज्ञ करने के बराबर पुण्य",
+    "⭐ दूसरों की आध्यात्मिक मदद करना सबसे बड़ा दान है",
+    "🌺 जब तुम किसी को जाप करवाते हो, तो भगवान तुम्हारी सभी मनोकामनाएँ पूरी करते हैं"
+  ];
+
+  // Tip 4: Problem-specific tips
+  let specificTip = "";
+  
+  if (problemLower.includes('शादी') || problemLower.includes('marriage') || problemLower.includes('relationship')) {
+    specificTip = "💑 जाप करते समय अपने जीवनसाथी के लिए प्रार्थना करो - सही समय पर सब होगा";
+  } 
+  else if (problemLower.includes('करियर') || problemLower.includes('job') || problemLower.includes('career') || problemLower.includes('नौकरी')) {
+    specificTip = "💼 जाप के बाद अपने कर्म पर पूरा ध्यान दो - सफलता अवश्य मिलेगी";
+  }
+  else if (problemLower.includes('पैसा') || problemLower.includes('money') || problemLower.includes('financial')) {
+    specificTip = "💰 जाप से पहले दान का संकल्प लो - धन का प्रवाह बढ़ेगा";
+  }
+  else if (problemLower.includes('तनाव') || problemLower.includes('stress') || problemLower.includes('anxiety') || problemLower.includes('depression')) {
+    specificTip = "🧘 गहरी सांस लो और 108 बार जाप करो - मन तुरंत शांत होगा";
+  }
+  else if (problemLower.includes('परिवार') || problemLower.includes('family') || problemLower.includes('parents')) {
+    specificTip = "👨‍👩‍ पूरे परिवार के साथ मिलकर जाप करो - घर में सुख-शांति आएगी";
+  }
+  else if (problemLower.includes('स्वास्थ्य') || problemLower.includes('health') || problemLower.includes('बीमार')) {
+    specificTip = "🏥 जाप के साथ प्रार्थना करो - स्वास्थ्य में सुधार होगा";
+  }
+  else if (problemLower.includes('पढ़ाई') || problemLower.includes('study') || problemLower.includes('exam')) {
+    specificTip = "📚 परीक्षा से पहले 108 बार जाप करो - एकाग्रता बढ़ेगी";
+  }
+  else {
+    specificTip = "🌟 रोज सुबह उठकर सबसे पहले 108 बार जाप करो - पूरा दिन मंगलमय होगा";
+  }
+
+  // Select tips based on random number for variety
+  tips.push(japTips[randomNum % japTips.length]);
+  tips.push(shareTips[randomNum % shareTips.length]);
+  tips.push(punyaTips[randomNum % punyaTips.length]);
+  tips.push(specificTip);
+
+  return tips;
 }
 
 // Error handling middleware
