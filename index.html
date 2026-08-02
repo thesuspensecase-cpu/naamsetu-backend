@@ -64,21 +64,31 @@
         }
 
         .logo-text {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
 
-        .logo-text span {
+        /* Naam in Red, Setu in White */
+        .logo-text .naam {
             color: var(--accent-red);
+        }
+
+        .logo-text .setu {
+            color: #FFFFFF;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-sub);
-            margin-left: 24px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: 0.3s;
         }
 
@@ -267,13 +277,13 @@
         .footer-brand {
             font-size: 1.5rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 24px;
+            gap: 15px 25px;
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
@@ -281,7 +291,7 @@
         .footer-links a {
             color: var(--text-sub);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             transition: 0.3s;
         }
 
@@ -311,12 +321,16 @@
     <header>
         <div class="logo-container">
             <img src="logo.png" alt="NaamSetu Logo" class="logo-img">
-            <div class="logo-text">Naam<span>Setu</span></div>
+            <div class="logo-text"><span class="naam">Naam</span><span class="setu">Setu</span></div>
         </div>
         <nav class="nav-links">
             <a href="#features">Features</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="about">About Us</a>
+            <a href="privacy">Privacy Policy</a>
+            <a href="terms">Terms</a>
+            <a href="help">Help & Support</a>
+            <a href="shipping-policy">Shipping Policy</a>
+            <a href="store-policy">Store Policy</a>
         </nav>
     </header>
 
@@ -329,8 +343,7 @@
             <h1 class="hero-title">Digital Jap & Spiritual <span>Sadhana App</span></h1>
             <p class="hero-subtitle">Apne nitya naam-jap ko track karein, 108 cycle mala poori karein, Aura points kamayein aur Global Sangh ke sath apni bhakti yatra ko aage badhayein.</p>
             
-            <!-- [PLAY STORE LINK HERE] -->
-            <a href="YOUR_PLAY_STORE_URL_HERE" class="btn-playstore" target="_blank" id="download-btn">
+            <a href="#" class="btn-playstore" id="download-btn">
                 <i class="fab fa-google-play"></i>
                 <span>Download on Play Store</span>
             </a>
@@ -349,42 +362,36 @@
         </div>
         
         <div class="features-grid">
-            <!-- Feature 1 -->
             <div class="feature-card">
                 <div class="feature-icon icon-jap"><i class="fas fa-om"></i></div>
                 <h3>Digital Jap Counter</h3>
                 <p>Modern Jap wheel interface ke sath 108 Cycle Mala complete karein. Apne mantra chuniye aur nitya naam-jap ka hisab rakhiye.</p>
             </div>
 
-            <!-- Feature 2 -->
             <div class="feature-card">
                 <div class="feature-icon icon-streak"><i class="fas fa-fire"></i></div>
                 <h3>Daily Jap Streaks</h3>
                 <p>Regularity banaye rakhein! Streaks complete karke Boosters unlocked karein aur Streak Savers se apni continuity safe rakhein.</p>
             </div>
 
-            <!-- Feature 3 -->
             <div class="feature-card">
                 <div class="feature-icon icon-analytics"><i class="fas fa-chart-line"></i></div>
                 <h3>Sadhana Analytics</h3>
                 <p>Weekly performance graphs, today vs yesterday comparison aur total Jap analytics ke sath apni spiritual growth track karein.</p>
             </div>
 
-            <!-- Feature 4 -->
             <div class="feature-card">
                 <div class="feature-icon icon-sangh"><i class="fas fa-users"></i></div>
                 <h3>Global Sangh & Leaderboard</h3>
                 <p>Duniya bhar ke sadhako ke sath judein. Global Leaderboard par apni rank dekhein aur Aura points earn karein.</p>
             </div>
 
-            <!-- Feature 5 -->
             <div class="feature-card">
                 <div class="feature-icon icon-cards"><i class="fas fa-layer-group"></i></div>
                 <h3>Divine Cards & Blessings</h3>
                 <p>Coins se Divine Cards unlock karein (Ganesh, Durga, Radha, Om Blessings) aur apne Aura Level ko boost karein.</p>
             </div>
 
-            <!-- Feature 6 -->
             <div class="feature-card">
                 <div class="feature-icon icon-stories"><i class="fas fa-book-open"></i></div>
                 <h3>Katha & Audio Stories</h3>
@@ -395,12 +402,14 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-brand">NaamSetu</div>
+        <div class="footer-brand"><span style="color: var(--accent-red);">Naam</span><span style="color: #FFFFFF;">Setu</span></div>
         <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a> | 
-            <a href="terms.html">Terms & Conditions</a> | 
-            <a href="about.html">About Us</a> | 
-            <a href="contact.html">Contact Us</a>
+            <a href="about">About Us</a>
+            <a href="privacy">Privacy Policy</a>
+            <a href="terms">Terms & Conditions</a>
+            <a href="help">Help & Support</a>
+            <a href="shipping-policy">Shipping Policy</a>
+            <a href="store-policy">Store Policy</a>
         </div>
         <div class="copyright">
             &copy; 2026 NaamSetu. All Rights Reserved.
