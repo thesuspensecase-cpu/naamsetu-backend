@@ -1,17 +1,1 @@
-{
-  "name": "naamsetu-backend",
-  "version": "1.0.0",
-  "description": "Naamsetu Gita Shlok Finder",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "axios": "^1.6.0",
-    "cors": "^2.8.5"
-  },
-  "engines": {
-    "node": "18.x"
-  }
-}
+
