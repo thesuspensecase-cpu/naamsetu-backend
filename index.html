@@ -3,42 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NaamSetu - Aapki Digital Bhakti aur Jaap Sathi</title>
+    <title>NaamSetu - Connect • Chant • Grow • Together</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #FF6F00; /* Deep Saffron */
-            --secondary: #FF8F00;
-            --dark: #1E1B18;
-            --light: #FFF8F0;
-            --gray: #666;
+            --bg-dark: #0F0E13;
+            --card-bg: #1A1921;
+            --card-border: #2A2835;
+            --accent-yellow: #FFD200;
+            --accent-red: #E63946;
+            --accent-green: #00E676;
+            --accent-orange: #FF6B00;
+            --text-main: #FFFFFF;
+            --text-sub: #A0A0AB;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Header / Navbar */
+        /* Navbar */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            background: #ffffff;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            padding: 1.2rem 8%;
+            background: rgba(15, 14, 19, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -50,30 +56,34 @@
             gap: 12px;
         }
 
-        /* LOGO PLACEHOLDER */
         .logo-img {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 10px;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--accent-red);
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
-            margin-left: 20px;
-            font-weight: 500;
+            color: var(--text-sub);
+            margin-left: 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
             transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--accent-yellow);
         }
 
         /* Hero Section */
@@ -81,160 +91,216 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 4rem 5%;
-            min-height: 80vh;
-            background: linear-gradient(135deg, #FFF8F0 0%, #FFE0B2 100%);
+            padding: 4rem 8% 5rem;
+            gap: 3rem;
             flex-wrap: wrap;
+            background: radial-gradient(circle at 50% 20%, rgba(255, 107, 0, 0.08) 0%, rgba(15, 14, 19, 0) 70%);
         }
 
         .hero-content {
             flex: 1;
-            min-width: 300px;
-            padding-right: 2rem;
+            min-width: 320px;
+        }
+
+        .tagline-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 210, 0, 0.1);
+            border: 1px solid rgba(255, 210, 0, 0.3);
+            color: var(--accent-yellow);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #D84315;
-            margin-bottom: 1rem;
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, #FFD200 0%, #FF6B00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
-            color: #4E342E;
-            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            margin-bottom: 2.5rem;
+            max-width: 520px;
         }
 
-        .btn-download {
+        .btn-playstore {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            background: var(--primary);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 50px;
+            gap: 14px;
+            background: var(--accent-yellow);
+            color: #000000;
+            padding: 16px 32px;
+            border-radius: 16px;
             text-decoration: none;
             font-size: 1.1rem;
-            font-weight: 600;
-            box-shadow: 0 8px 20px rgba(255, 111, 0, 0.3);
-            transition: 0.3s transform, 0.3s box-shadow;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(255, 210, 0, 0.25);
         }
 
-        .btn-download:hover {
+        .btn-playstore:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(255, 111, 0, 0.4);
-            background: #E65100;
+            box-shadow: 0 15px 35px rgba(255, 210, 0, 0.4);
+            background: #ffe033;
+        }
+
+        .btn-playstore i {
+            font-size: 1.5rem;
         }
 
         .hero-image {
             flex: 1;
             min-width: 300px;
-            text-align: center;
-            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
         }
 
-        /* SCREENSHOT PLACEHOLDER */
         .app-screenshot {
-            width: 280px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border: 8px solid #ffffff;
+            width: 290px;
+            border-radius: 36px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 210, 0, 0.15);
+            border: 4px solid var(--card-border);
+            transform: rotate(-2deg);
+            transition: 0.3s transform;
+        }
+
+        .app-screenshot:hover {
+            transform: rotate(0deg) scale(1.02);
         }
 
         /* Features Section */
         .features {
-            padding: 5rem 5%;
-            background: #ffffff;
+            padding: 6rem 8%;
+            background: #0B0A0E;
+        }
+
+        .section-header {
             text-align: center;
+            margin-bottom: 4rem;
         }
 
         .section-title {
-            font-size: 2.2rem;
-            color: var(--dark);
-            margin-bottom: 3rem;
-            position: relative;
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
         }
 
-        .section-title::after {
-            content: '';
-            width: 60px;
-            height: 4px;
-            background: var(--primary);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 2px;
+        .section-subtitle {
+            color: var(--text-sub);
+            font-size: 1rem;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .feature-card {
-            padding: 2rem;
-            background: var(--light);
-            border-radius: 20px;
-            transition: 0.3s;
-            border: 1px solid #FFE0B2;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 2.2rem;
+            border-radius: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .feature-card:hover {
+            border-color: rgba(255, 210, 0, 0.4);
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
         }
 
+        .icon-jap { background: rgba(255, 107, 0, 0.15); color: var(--accent-orange); }
+        .icon-streak { background: rgba(255, 210, 0, 0.15); color: var(--accent-yellow); }
+        .icon-analytics { background: rgba(0, 230, 118, 0.15); color: var(--accent-green); }
+        .icon-sangh { background: rgba(230, 57, 70, 0.15); color: var(--accent-red); }
+        .icon-cards { background: rgba(147, 51, 234, 0.15); color: #A855F7; }
+        .icon-stories { background: rgba(59, 130, 246, 0.15); color: #3B82F6; }
+
         .feature-card h3 {
-            margin-bottom: 0.5rem;
-            color: #D84315;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 5% 1.5rem;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--card-border);
+            padding: 3rem 8% 2rem;
             text-align: center;
+        }
+
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 1.5rem;
+            gap: 24px;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: #FFE0B2;
+            color: var(--text-sub);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: 0.3s;
         }
 
         .footer-links a:hover {
-            color: var(--primary);
+            color: var(--accent-yellow);
         }
 
         .copyright {
             font-size: 0.85rem;
-            color: #aaa;
-            border-top: 1px solid #333;
+            color: #666;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding-top: 1.5rem;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.1rem; }
-            .hero { text-align: center; }
-            .hero-content { padding-right: 0; }
+            .hero-title { font-size: 2.3rem; }
+            .hero { text-align: center; padding-top: 2rem; }
+            .hero-content { min-width: 100%; }
+            .hero-subtitle { margin: 0 auto 2rem; }
             .nav-links { display: none; }
         }
     </style>
@@ -244,9 +310,8 @@
     <!-- Header / Navbar -->
     <header>
         <div class="logo-container">
-            <!-- [LOGO IMAGE HERE]: Replace src with your logo path -->
-            <img src="logo.png" alt="NaamSetu Logo" class="logo-img" id="app-logo">
-            <span class="logo-text">NaamSetu</span>
+            <img src="logo.png" alt="NaamSetu Logo" class="logo-img">
+            <div class="logo-text">Naam<span>Setu</span></div>
         </div>
         <nav class="nav-links">
             <a href="#features">Features</a>
@@ -258,55 +323,79 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Aapki Bhakti, Aapka Digital Sankalp</h1>
-            <p class="hero-subtitle">NaamSetu ke sath apne daily jaap, manokamna gathri, aur nitya bhakthi tasks ko digital aayam dein. Ek pavitra aur sundar spiritual anubhav.</p>
+            <div class="tagline-badge">
+                <i class="fas fa-bolt"></i> CONNECT • CHANT • GROW
+            </div>
+            <h1 class="hero-title">Digital Jap & Spiritual <span>Sadhana App</span></h1>
+            <p class="hero-subtitle">Apne nitya naam-jap ko track karein, 108 cycle mala poori karein, Aura points kamayein aur Global Sangh ke sath apni bhakti yatra ko aage badhayein.</p>
             
             <!-- [PLAY STORE LINK HERE] -->
-            <a href="YOUR_PLAY_STORE_URL_HERE" class="btn-download" target="_blank" id="download-btn">
+            <a href="YOUR_PLAY_STORE_URL_HERE" class="btn-playstore" target="_blank" id="download-btn">
                 <i class="fab fa-google-play"></i>
-                <span>Get it on Google Play</span>
+                <span>Download on Play Store</span>
             </a>
         </div>
         
         <div class="hero-image">
-            <!-- [SCREENSHOT IMAGE HERE]: Replace src with your screenshot path -->
-            <img src="screenshot.png" alt="NaamSetu App Home Screen" class="app-screenshot" id="app-screenshot">
+            <img src="screenshot.png" alt="NaamSetu App Screen" class="app-screenshot">
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <h2 class="section-title">App Ki Khasitatein</h2>
+        <div class="section-header">
+            <h2 class="section-title">App Ki Khaas Khasitatein</h2>
+            <p class="section-subtitle">Aapke Nitya Niyama Aur Sadhana Ko Aasan Aur Gamified Banane Ke Liye</p>
+        </div>
         
         <div class="features-grid">
+            <!-- Feature 1 -->
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-om"></i></div>
-                <h3>Digital Jaap Counter</h3>
-                <p>Aasan aur shuddh interface ke sath apni daily mala aur naam jaap ko track karein.</p>
+                <div class="feature-icon icon-jap"><i class="fas fa-om"></i></div>
+                <h3>Digital Jap Counter</h3>
+                <p>Modern Jap wheel interface ke sath 108 Cycle Mala complete karein. Apne mantra chuniye aur nitya naam-jap ka hisab rakhiye.</p>
             </div>
 
+            <!-- Feature 2 -->
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-scroll"></i></div>
-                <h3>Manokamna Gathri</h3>
-                <p>Apne sankalp aur manokamnaon ko safe rakhein aur bhakti path par aage badhein.</p>
+                <div class="feature-icon icon-streak"><i class="fas fa-fire"></i></div>
+                <h3>Daily Jap Streaks</h3>
+                <p>Regularity banaye rakhein! Streaks complete karke Boosters unlocked karein aur Streak Savers se apni continuity safe rakhein.</p>
             </div>
 
+            <!-- Feature 3 -->
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-tasks"></i></div>
-                <h3>Nitya Tasks & Streaks</h3>
-                <p>Daily spiritual goals poore karein aur apni regular bhakti streak banaye rakhein.</p>
+                <div class="feature-icon icon-analytics"><i class="fas fa-chart-line"></i></div>
+                <h3>Sadhana Analytics</h3>
+                <p>Weekly performance graphs, today vs yesterday comparison aur total Jap analytics ke sath apni spiritual growth track karein.</p>
             </div>
 
+            <!-- Feature 4 -->
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>Private & Safe</h3>
-                <p>Aapka data local-first architecture ke sath safe aur secure rehta hai.</p>
+                <div class="feature-icon icon-sangh"><i class="fas fa-users"></i></div>
+                <h3>Global Sangh & Leaderboard</h3>
+                <p>Duniya bhar ke sadhako ke sath judein. Global Leaderboard par apni rank dekhein aur Aura points earn karein.</p>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-card">
+                <div class="feature-icon icon-cards"><i class="fas fa-layer-group"></i></div>
+                <h3>Divine Cards & Blessings</h3>
+                <p>Coins se Divine Cards unlock karein (Ganesh, Durga, Radha, Om Blessings) aur apne Aura Level ko boost karein.</p>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card">
+                <div class="feature-icon icon-stories"><i class="fas fa-book-open"></i></div>
+                <h3>Katha & Audio Stories</h3>
+                <p>Pavitra kathayein aur spiritual stories padhein ya high-quality audio mein sunein. Apne gyan ko har din samriddh karein.</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
+        <div class="footer-brand">NaamSetu</div>
         <div class="footer-links">
             <a href="privacy-policy.html">Privacy Policy</a> | 
             <a href="terms.html">Terms & Conditions</a> | 
