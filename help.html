@@ -1,1 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - NaamSetu</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0F0E13;
+            --card-bg: #1A1921;
+            --card-border: #2A2835;
+            --accent-yellow: #FFD200;
+            --accent-red: #E63946;
+            --text-main: #FFFFFF;
+            --text-sub: #A0A0AB;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 8%;
+            background: rgba(15, 14, 19, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .logo-text .naam { color: var(--accent-red); }
+        .logo-text .setu { color: #FFFFFF; }
+
+        .back-btn {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
+
+        .page-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-sub);
+            font-size: 1.05rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: var(--accent-yellow);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-yellow);
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .question {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .answer {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        code {
+            background: rgba(255, 210, 0, 0.1);
+            color: var(--accent-yellow);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* Support CTA Card */
+        .support-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, #1A1921 0%, #252330 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            margin-top: 3rem;
+        }
+
+        .support-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .support-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .support-card a {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .support-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            border-top: 1px solid var(--card-border);
+            padding: 2rem 8%;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="NaamSetu Logo" class="logo-img">
+            <div class="logo-text"><span class="naam">Naam</span><span class="setu">Setu</span></div>
+        </a>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Wapas Home Par Jayein</a>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Help & Support</h1>
+            <p class="subtitle">Everything you need to know about your spiritual companion.</p>
+        </div>
+
+        <section id="getting-started">
+            <h2><i class="fas fa-rocket"></i> 1. Getting Started</h2>
+            
+            <div class="faq-item">
+                <span class="question">How do I start a Jap session?</span>
+                <div class="answer">Open the App, select your desired Mantra from the home screen, and tap the Jap button. Each tap counts as one chant. The counter will automatically track your progress towards a "Mala" (108 cycles).</div>
+            </div>
+
+            <div class="faq-item">
+                <span class="question">What is the "Global Handy Circle" and how do I use it?</span>
+                <div class="answer">The Global Handy Circle is a floating overlay that lets you count Japs while using other apps. To enable it, you must grant the <strong>"Appear on top"</strong> (System Alert Window) permission in your device settings. Once enabled, you can minimize NaamSetu and keep chanting via the floating icon.</div>
+            </div>
+        </section>
+
+        <section id="account-data">
+            <h2><i class="fas fa-sync-alt"></i> 2. Account & Data Syncing</h2>
+
+            <div class="faq-item">
+                <span class="question">How does my data stay safe?</span>
+                <div class="answer">NaamSetu uses an <strong>Offline-First Architecture</strong>. Your Jap counts are saved instantly to your device's local database (Room DB). This ensures you never lose a chant even without internet. When you go online, these counts are seamlessly synced to our secure cloud (Firebase).</div>
+            </div>
+
+            <div class="faq-item">
+                <span class="question">Can I use NaamSetu on multiple devices?</span>
+                <div class="answer">Yes! Simply sign in with the same Google or Email account on both devices. Your progress, streaks, and Divine Cards will sync automatically once you are online.</div>
+            </div>
+
+            <div class="faq-item">
+                <span class="question">What happens if I uninstall the app?</span>
+                <div class="answer">If you are signed in, your data is backed up in the cloud. However, if you use the app as a guest, uninstalling will delete your local progress permanently. We recommend signing in to protect your Sadhana history.</div>
+            </div>
+        </section>
+
+        <section id="gamification">
+            <h2><i class="fas fa-trophy"></i> 3. Gamification & Features</h2>
+
+            <div class="faq-item">
+                <span class="question">How do Streaks and Streak Savers work?</span>
+                <div class="answer">Perform at least one Mala every day to maintain your streak. If you miss a day, your streak will reset unless you have a <strong>Streak Saver</strong> active. You can earn Savers through milestones or purchase them with Coins.</div>
+            </div>
+
+            <div class="faq-item">
+                <span class="question">What are Aura Points and Divine Cards?</span>
+                <div class="answer">Aura Points reflect your spiritual consistency. As you chant, you earn Aura and Virtual Coins. These can be used to unlock <strong>Divine Cards</strong>—unique digital collectibles that represent different deities and spiritual levels.</div>
+            </div>
+
+            <div class="faq-item">
+                <span class="question">How does the Global Sangh Leaderboard work?</span>
+                <div class="answer">The Leaderboard ranks users globally based on their total Jap count and Aura. It updates in real-time. To ensure fairness, we use <strong>Google Play Integrity</strong> and internal anti-cheat systems to detect and ban auto-clickers or automated scripts.</div>
+            </div>
+        </section>
+
+        <section id="troubleshooting">
+            <h2><i class="fas fa-wrench"></i> 4. Troubleshooting</h2>
+
+            <div class="faq-item">
+                <span class="question">My Jap count isn't updating on the Leaderboard.</span>
+                <div class="answer">Ensure you have a stable internet connection. Sometimes it takes a few minutes for the sync to reflect on the global servers. If it persists, try restarting the app.</div>
+            </div>
+
+            <div class="faq-item">
+                <span class="question">Ads are not loading or causing lag.</span>
+                <div class="answer">We use Google AdMob for monetization. If ads don't load, check your internet or ad-blocker settings. If the app freezes, please clear the app cache from <code>Settings > Apps > NaamSetu > Storage</code>.</div>
+            </div>
+
+            <div class="faq-item">
+                <span class="question">I made a purchase but didn't receive the items.</span>
+                <div class="answer">Purchases are handled via Google Play Billing. If your items don't appear within 10 minutes, go to Settings and tap <strong>"Restore Purchases."</strong> If the issue continues, contact us with your Google Play transaction ID.</div>
+            </div>
+        </section>
+
+        <div class="support-card">
+            <h3>Still need help?</h3>
+            <p>Our support team is here for you. Email us at:</p>
+            <p><a href="mailto:support@naamsetu.com"><i class="fas fa-envelope"></i> support@naamsetu.com</a></p>
+            <p style="font-size: 0.85em; margin-top: 10px; opacity: 0.7;">We typically respond within 24 to 48 hours.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 NaamSetu Dev Team. All rights reserved.
+    </footer>
+
+</body>
+</html>
