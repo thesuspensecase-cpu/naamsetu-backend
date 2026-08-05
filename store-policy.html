@@ -1,1 +1,297 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store & Virtual Goods Policy - NaamSetu</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0F0E13;
+            --card-bg: #1A1921;
+            --card-border: #2A2835;
+            --accent-yellow: #FFD200;
+            --accent-red: #E63946;
+            --text-main: #FFFFFF;
+            --text-sub: #A0A0AB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 8%;
+            background: rgba(15, 14, 19, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .logo-text .naam { color: var(--accent-red); }
+        .logo-text .setu { color: #FFFFFF; }
+
+        .back-btn {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
+
+        .page-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-note {
+            color: var(--accent-yellow);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            color: var(--text-sub);
+            font-size: 1.05rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            color: var(--accent-yellow);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+            color: var(--text-sub);
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 0.98rem;
+        }
+
+        li strong {
+            color: var(--text-main);
+        }
+
+        .highlight {
+            color: var(--accent-yellow);
+            font-weight: 700;
+        }
+
+        code {
+            background: rgba(255, 210, 0, 0.1);
+            color: var(--accent-yellow);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, #1A1921 0%, #252330 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            margin-top: 2.5rem;
+        }
+
+        .contact-box h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-box a {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            border-top: 1px solid var(--card-border);
+            padding: 2rem 8%;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="NaamSetu Logo" class="logo-img">
+            <div class="logo-text"><span class="naam">Naam</span><span class="setu">Setu</span></div>
+        </a>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Wapas Home Par Jayein</a>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Store & Virtual Goods Policy</h1>
+            <p class="policy-note">Last Updated: August 05, 2026</p>
+        </div>
+
+        <p class="intro-text">This Store Policy governs all in-app purchases, virtual currency, and digital assets within the <strong>NaamSetu</strong> mobile application. By making a purchase or earning rewards within the App, you agree to these terms.</p>
+
+        <section>
+            <h2><i class="fas fa-coins"></i> 1. Virtual Assets & Digital Goods</h2>
+            <p style="color: var(--text-sub); margin-bottom: 1rem;">NaamSetu offers various digital assets to enhance your spiritual journey experience:</p>
+            <ul>
+                <li><strong>Virtual Currencies:</strong> Coins and Aura Points earned through Sadhana or purchased via bundles.</li>
+                <li><strong>Digital Items:</strong> Divine Cards, Streak Savers, Boosters, and other premium virtual collectibles.</li>
+                <li><strong>Nature of Assets:</strong> All virtual assets are <span class="highlight">non-transferable</span>, have <span class="highlight">no real-world monetary value</span>, and cannot be redeemed for cash, credit, or physical goods from us or any third party.</li>
+                <li><strong>License Only:</strong> Your purchase of virtual assets is a limited, personal, revocable, and non-exclusive license to use these items solely within the NaamSetu App.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-shield-alt"></i> 2. Payment Processing & Security</h2>
+            <ul>
+                <li><strong>Authorized Gateway:</strong> All financial transactions are processed exclusively through the <strong>Google Play Billing API</strong>.</li>
+                <li><strong>Data Privacy:</strong> NaamSetu does <span class="highlight">not</span> collect, store, or have access to your raw payment credentials, credit card numbers, or bank details. All such information is handled securely by Google.</li>
+                <li><strong>Compliance:</strong> Our billing practices are fully compliant with the Google Play Developer Program Policies.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-bolt"></i> 3. Fulfillment & Delivery</h2>
+            <ul>
+                <li><strong>Instant Delivery:</strong> Digital goods are typically delivered and updated in your app profile immediately upon successful payment verification by Google Play.</li>
+                <li><strong>Restoration:</strong> If you change devices or reinstall the app, you can use the <strong>"Restore Purchases"</strong> button in the App Settings to recover any permanent non-consumable digital items linked to your Google Account.</li>
+                <li><strong>Sync Requirement:</strong> Ensure you are signed in and have an active internet connection to ensure your purchase is synced with our cloud servers.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-undo"></i> 4. Refund & Cancellation Policy</h2>
+            <p style="color: var(--text-sub); margin-bottom: 1rem;">As NaamSetu provides instant access to digital content, our refund policy is as follows:</p>
+            <ul>
+                <li><strong>Google Play Policy:</strong> All refund requests are governed by the <strong>Google Play Store Refund Policies</strong>. Users should typically request a refund through the Google Play purchase history or the Google Play Support website within 48 hours of purchase.</li>
+                <li><strong>Developer Assistance:</strong> If Google Play denies a refund for a technical error where items were not delivered despite a successful charge, please contact us with your <strong>Google Play Order ID</strong> (starting with <code>GPA.xxxx-xxxx-xxxx-xxxxx</code>).</li>
+                <li><strong>Consumables:</strong> Items that have been used (e.g., Streak Savers used to save a streak or Coins spent to unlock a card) are not eligible for refunds.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-tags"></i> 5. Pricing & Modifications</h2>
+            <p style="color: var(--text-sub); margin-bottom: 1rem;">We reserve the right to:</p>
+            <ul>
+                <li>Modify the price of virtual assets, bundles, or subscriptions at any time without prior notice.</li>
+                <li>Discontinue or change the availability of any Divine Card, Booster, or digital item.</li>
+                <li>Change the "earn rate" of virtual currency (Aura/Coins) through gameplay or Sadhana activities.</li>
+            </ul>
+        </section>
+
+        <div class="contact-box">
+            <h3>Billing Support</h3>
+            <p>For any purchase-related inquiries, please email us with your Order ID at:</p>
+            <p><a href="mailto:support@naamsetu.com"><i class="fas fa-envelope"></i> support@naamsetu.com</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 NaamSetu Dev Team. All rights reserved. <br>
+        <span style="opacity: 0.6; font-size: 0.8rem;">Powered by Google Play Billing.</span>
+    </footer>
+
+</body>
+</html>
