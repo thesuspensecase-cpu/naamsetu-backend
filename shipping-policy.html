@@ -1,1 +1,276 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping & Spiritual Shop Policy - NaamSetu</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0F0E13;
+            --card-bg: #1A1921;
+            --card-border: #2A2835;
+            --accent-yellow: #FFD200;
+            --accent-red: #E63946;
+            --text-main: #FFFFFF;
+            --text-sub: #A0A0AB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Plain Header without Back Button */
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.2rem 8%;
+            background: rgba(15, 14, 19, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .logo-text .naam { color: var(--accent-red); }
+        .logo-text .setu { color: #FFFFFF; }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
+
+        .page-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-note {
+            color: var(--accent-yellow);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .notice-banner {
+            background: rgba(230, 57, 70, 0.1);
+            border: 1px solid var(--accent-red);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .notice-banner i {
+            color: var(--accent-red);
+            font-size: 1.5rem;
+            margin-top: 3px;
+        }
+
+        .notice-text h3 {
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .notice-text p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            color: var(--accent-yellow);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+            color: var(--text-sub);
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 0.98rem;
+        }
+
+        li strong {
+            color: var(--text-main);
+        }
+
+        /* Contact Box */
+        .contact-box {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, #1A1921 0%, #252330 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            margin-top: 2.5rem;
+        }
+
+        .contact-box h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-box a {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            border-top: 1px solid var(--card-border);
+            padding: 2rem 8%;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Plain, No Back Button) -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="NaamSetu Logo" class="logo-img">
+            <div class="logo-text"><span class="naam">Naam</span><span class="setu">Setu</span></div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Shipping & Spiritual Shop Policy</h1>
+            <p class="policy-note">Last Updated: August 05, 2026</p>
+        </div>
+
+        <!-- Future Disclaimer Banner -->
+        <div class="notice-banner">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div class="notice-text">
+                <h3>Feature Notice: Digital Platform Only</h3>
+                <p>NaamSetu currently operates strictly as a digital application. The "Spiritual Shop" and physical merchandise shipping services are conceptual features provided for UI preview purposes only and are <strong>currently inactive</strong>.</p>
+            </div>
+        </div>
+
+        <section>
+            <h2><i class="fas fa-store"></i> 1. The Spiritual Shop Concept</h2>
+            <ul>
+                <li><strong>Current Status:</strong> The Spiritual Shop section inside the app represents a planned extension for physical spiritual goods (e.g., Jap Malas, Counter Rings, Prayer Mats, Divine Cards).</li>
+                <li><strong>No Physical Sales Currently:</strong> At present, no physical products are offered, sold, or processed through this app. All items currently available in NaamSetu are purely digital assets delivered electronically.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-truck"></i> 2. Proposed Future Shipping Policy</h2>
+            <p style="color: var(--text-sub); margin-bottom: 1rem;">In the event that physical merchandise shipping is officially launched in a future update, the following guidelines will apply:</p>
+            <ul>
+                <li><strong>Fulfillment & Delivery:</strong> Physical orders will be processed within 2–4 business days and dispatched via standard courier partners.</li>
+                <li><strong>Shipping Rates & Timelines:</strong> Estimated shipping costs and delivery times will be displayed at checkout prior to payment.</li>
+                <li><strong>Order Tracking:</strong> Tracking numbers and courier links will be sent via registered email upon dispatch.</li>
+                <li><strong>Non-Guarantee Notice:</strong> NaamSetu makes no commitment or guarantee regarding the exact release date or availability of physical goods shipping.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-box-open"></i> 3. Digital Item Delivery</h2>
+            <ul>
+                <li><strong>Instant Provisioning:</strong> All digital goods (Coins, Aura Points, Divine Cards, Streak Savers) purchased via Google Play Billing are delivered instantly inside your app profile upon payment verification.</li>
+                <li><strong>No Physical Dispatch:</strong> Digital items do not require physical packaging or postal delivery.</li>
+            </ul>
+        </section>
+
+        <div class="contact-box">
+            <h3>Questions About Store Features?</h3>
+            <p>If you have any queries regarding upcoming features or digital purchases, write to us at:</p>
+            <p><a href="mailto:support@naamsetu.com"><i class="fas fa-envelope"></i> support@naamsetu.com</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 NaamSetu Dev Team. All rights reserved.
+    </footer>
+
+</body>
+</html>
