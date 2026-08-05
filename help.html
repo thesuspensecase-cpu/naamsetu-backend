@@ -33,10 +33,10 @@
             line-height: 1.6;
         }
 
-        /* Header */
+        /* Plain Header without Back Button */
         header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 1.2rem 8%;
             background: rgba(15, 14, 19, 0.85);
@@ -69,20 +69,6 @@
         .logo-text .naam { color: var(--accent-red); }
         .logo-text .setu { color: #FFFFFF; }
 
-        .back-btn {
-            color: var(--accent-yellow);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .back-btn:hover {
-            text-decoration: underline;
-        }
-
         /* Main Container */
         .container {
             max-width: 900px;
@@ -94,6 +80,7 @@
             margin-bottom: 2.5rem;
             border-bottom: 1px solid var(--card-border);
             padding-bottom: 1.5rem;
+            text-align: center;
         }
 
         h1 {
@@ -207,13 +194,12 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header (Plain, No Back Button) -->
     <header>
-        <a href="index.html" class="logo-container">
+        <div class="logo-container">
             <img src="logo.png" alt="NaamSetu Logo" class="logo-img">
             <div class="logo-text"><span class="naam">Naam</span><span class="setu">Setu</span></div>
-        </a>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Wapas Home Par Jayein</a>
+        </div>
     </header>
 
     <!-- Main Container -->
