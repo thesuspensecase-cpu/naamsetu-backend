@@ -1,1 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - NaamSetu</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0F0E13;
+            --card-bg: #1A1921;
+            --card-border: #2A2835;
+            --accent-yellow: #FFD200;
+            --accent-red: #E63946;
+            --text-main: #FFFFFF;
+            --text-sub: #A0A0AB;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 8%;
+            background: rgba(15, 14, 19, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .logo-text .naam { color: var(--accent-red); }
+        .logo-text .setu { color: #FFFFFF; }
+
+        .back-btn {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
+
+        .page-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .effective-date {
+            color: var(--accent-yellow);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            color: var(--text-sub);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: var(--accent-yellow);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+        }
+
+        li strong {
+            color: var(--text-main);
+        }
+
+        .legal-block {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--accent-yellow);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.88rem;
+            color: #BBB;
+            text-transform: uppercase;
+        }
+
+        a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            border-top: 1px solid var(--card-border);
+            padding: 2rem 8%;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="NaamSetu Logo" class="logo-img">
+            <div class="logo-text"><span class="naam">Naam</span><span class="setu">Setu</span></div>
+        </a>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Wapas Home Par Jayein</a>
+    </header>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Terms and Conditions</h1>
+            <div class="effective-date"><i class="far fa-calendar-alt"></i> Effective Date: August 05, 2026</div>
+        </div>
+
+        <p class="intro-text">Welcome to <strong>NaamSetu</strong>. These Terms and Conditions ("Terms") govern your access to and use of the NaamSetu mobile application ("App") provided by the NaamSetu Dev Team ("we," "us," or "our").</p>
+
+        <section>
+            <h2><i class="fas fa-file-contract"></i> 1. Acceptance of Terms</h2>
+            <p>By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you must immediately uninstall the App and cease all use of our services.</p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-cubes"></i> 2. Description of Services</h2>
+            <p>NaamSetu is a spiritual utility app designed to assist users in their daily Sadhana. Services include:</p>
+            <ul>
+                <li><strong>Digital Jap Counter & 108 Cycle Mala:</strong> Tools for counting spiritual chants.</li>
+                <li><strong>Global Handy Circle:</strong> A foreground overlay service allowing Jap counting while using other apps.</li>
+                <li><strong>Global Sangh Leaderboard:</strong> A community-driven ranking system based on Jap progress.</li>
+                <li><strong>Sadhana Analytics & Stories:</strong> Tracking progress, streaks, and access to spiritual educational content.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-user-shield"></i> 3. User Accounts & Data</h2>
+            <ul>
+                <li><strong>Account Creation:</strong> You may use Google or Email authentication (Firebase) to sync your progress. You are responsible for maintaining the confidentiality of your account credentials.</li>
+                <li><strong>Local vs. Cloud Data:</strong> Core Jap data is stored in a local <strong>Room Database</strong> for offline access. Cloud synchronization is provided as a convenience but is not guaranteed. We are not liable for data loss resulting from device failure or uninstallation without cloud sync.</li>
+                <li><strong>Connectivity:</strong> Certain features like the Leaderboard and Stories require an active internet connection.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-coins"></i> 4. Virtual Assets & Gamification</h2>
+            <ul>
+                <li><strong>Virtual Items:</strong> The App features virtual assets including <strong>Aura Points, Coins, Boosters, and Divine Cards</strong>.</li>
+                <li><strong>No Monetary Value:</strong> Virtual assets are purely for entertainment and spiritual motivation within the App. They hold <strong>no real-world monetary value</strong> and cannot be redeemed, sold, or exchanged for real currency or physical goods.</li>
+                <li><strong>In-App Purchases:</strong> Any purchase made via Google Play Billing is final. Refunds are governed by Google Play Store policies. Virtual assets may be modified or removed by us at any time without notice.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-gavel"></i> 5. Code of Conduct & Fair Play</h2>
+            <p>To maintain the integrity of the Global Sangh Leaderboard, you agree NOT to:</p>
+            <ul>
+                <li>Use automated scripts, bots, "auto-clickers," or any third-party software to manipulate Jap counts.</li>
+                <li>Exploit bugs or glitches to gain an unfair advantage in Aura points or levels.</li>
+                <li>Submit offensive or inappropriate content in profile names or community areas.</li>
+            </ul>
+            <p style="margin-top: 10px;"><strong>Consequences:</strong> We reserve the right to reset progress, ban accounts, or restrict Leaderboard access for any user found violating these Fair Play rules.</p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-copyright"></i> 6. Intellectual Property</h2>
+            <p>All content included in the App, such as text, graphics, logos, UI design, audio clips, and software, is the property of the NaamSetu Dev Team or its content suppliers and is protected by copyright and intellectual property laws. "NaamSetu" is our trademark and may not be used without prior written consent.</p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-ad"></i> 7. Advertisements & Third-Party Links</h2>
+            <p>The App displays advertisements via <strong>Google AdMob</strong>. We do not endorse the products or services advertised. The App may also contain links to third-party websites (e.g., YouTube). We are not responsible for the content or privacy practices of such external sites.</p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-exclamation-triangle"></i> 8. Disclaimer of Warranties</h2>
+            <div class="legal-block">
+                THE APP IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. WE DO NOT GUARANTEE THAT THE APP WILL BE BUG-FREE, UNINTERRUPTED, OR THAT THE SPIRITUAL ANALYTICS WILL MEET YOUR SPECIFIC REQUIREMENTS.
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-balance-scale"></i> 9. Limitation of Liability</h2>
+            <div class="legal-block">
+                TO THE MAXIMUM EXTENT PERMITTED BY LAW, NAAMSETU DEV TEAM SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF YOUR USE OR INABILITY TO USE THE APP, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-edit"></i> 10. Changes to Terms</h2>
+            <p>We reserve the right to modify these Terms at any time. Significant changes will be notified via an in-app announcement. Your continued use of the App after changes are posted constitutes acceptance of the new Terms.</p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-envelope"></i> 11. Contact Information</h2>
+            <p>For any legal inquiries or support, please contact:</p>
+            <p style="margin-top: 10px;">
+                <strong>App Publisher:</strong> NaamSetu Dev Team<br>
+                <strong>Email:</strong> <a href="mailto:support@naamsetu.com">support@naamsetu.com</a><br>
+                <strong>Website:</strong> <a href="https://naamsetu.com">www.naamsetu.com</a>
+            </p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 NaamSetu Dev Team. All rights reserved.
+    </footer>
+
+</body>
+</html>
