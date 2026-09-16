@@ -1,0 +1,32 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opening NaamSetu…</title>
+  <script>
+    const match = window.location.pathname.match(
+      /^\/profile\/([A-Za-z0-9_-]{1,128})\/?$/
+    );
+
+    if (match) {
+      const referrer = encodeURIComponent("profile_uid=" + match[1]);
+      const playStore =
+        "https://play.google.com/store/apps/details?id=com.naamsetu.app" +
+        "&referrer=" + referrer;
+
+      window.location.replace(playStore);
+    }
+  </script>
+</head>
+<body>
+  <p id="message">This page was not found.</p>
+  <script>
+    if (window.location.pathname.match(/^\/profile\/[A-Za-z0-9_-]{1,128}\/?$/)) {
+      document.getElementById("message").textContent =
+        "Opening NaamSetu on Google Play…";
+    }
+  </script>
+</body>
+</html>
