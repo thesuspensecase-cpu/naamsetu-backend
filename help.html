@@ -1,302 +1,696 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help & Support - NaamSetu</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg-dark: #0F0E13;
-            --card-bg: #1A1921;
-            --card-border: #2A2835;
-            --accent-yellow: #FFD200;
-            --accent-red: #E63946;
-            --text-main: #FFFFFF;
-            --text-sub: #A0A0AB;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+  <title>Help & Support — NaamSetu</title>
+  <meta name="description" content="Get help with NaamSetu — Jap counting, sync, streaks, Aura, Divine Cards, Sangam, subscriptions, troubleshooting and account support." />
+  <meta name="theme-color" content="#0b0b0d" />
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+  <meta property="og:title" content="Help & Support — NaamSetu" />
+  <meta property="og:description" content="Answers for NaamSetu Jap, Sangh, Sangam, streaks, subscriptions and account support." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://naamsetu.com/help" />
 
-        /* Plain Header without Back Button */
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1.2rem 8%;
-            background: rgba(15, 14, 19, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--card-border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
+  <style>
+    :root{
+      --bg:#0b0b0d;
+      --bg-soft:#101014;
+      --card:#17171c;
+      --border:#2a2a31;
+      --yellow:#ffd600;
+      --orange:#ff7a00;
+      --green:#1bd478;
+      --red:#ef4a4a;
+      --blue:#5d9cff;
+      --purple:#a970ff;
+      --text:#fff;
+      --muted:#aaaab5;
+      --muted-2:#7d7d88;
+      --max:1040px;
+    }
 
-        .logo-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            object-fit: contain;
-        }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Plus Jakarta Sans",sans-serif;
+      background:
+        radial-gradient(circle at 14% 0%,rgba(255,214,0,.05),transparent 24%),
+        radial-gradient(circle at 88% 14%,rgba(255,122,0,.04),transparent 23%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.7;
+      overflow-x:hidden;
+    }
 
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 800;
-        }
+    a{color:var(--yellow);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
 
-        .logo-text .naam { color: var(--accent-red); }
-        .logo-text .setu { color: #FFFFFF; }
+    /* NAV */
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(11,11,13,.84);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      min-height:74px;
+      display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:11px;
+      text-decoration:none;
+    }
+    .brand img{
+      width:42px;height:42px;border-radius:12px;object-fit:contain;
+    }
+    .brand-name{
+      font-size:1.45rem;font-weight:800;letter-spacing:-.6px;
+    }
+    .brand-name span:first-child{color:#fff}
+    .brand-name span:last-child{color:var(--yellow)}
+    .nav-links{
+      display:flex;align-items:center;gap:22px;
+    }
+    .nav-links a{
+      color:var(--muted);
+      font-size:.9rem;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .nav-links a:hover,.nav-links a.active{color:var(--yellow)}
+    .nav-cta{
+      background:var(--yellow);
+      color:#111!important;
+      padding:10px 16px;
+      border-radius:12px;
+    }
+    .menu-btn{
+      display:none;
+      border:0;background:none;
+      color:var(--yellow);
+      font-size:1.45rem;
+      cursor:pointer;
+    }
 
-        /* Main Container */
-        .container {
-            max-width: 900px;
-            margin: 3rem auto;
-            padding: 0 5%;
-        }
+    /* HERO */
+    .hero{
+      padding:82px 0 50px;
+      text-align:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,214,0,.24);
+      background:rgba(255,214,0,.07);
+      color:var(--yellow);
+      border-radius:999px;
+      padding:8px 15px;
+      font-size:.76rem;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+      margin-bottom:20px;
+    }
+    h1{
+      font-size:clamp(2.7rem,6vw,4.7rem);
+      line-height:1.03;
+      letter-spacing:-2.4px;
+      margin-bottom:16px;
+    }
+    .hero p{
+      color:var(--muted);
+      max-width:720px;
+      margin:0 auto;
+      font-size:1rem;
+    }
 
-        .page-header {
-            margin-bottom: 2.5rem;
-            border-bottom: 1px solid var(--card-border);
-            padding-bottom: 1.5rem;
-            text-align: center;
-        }
+    /* QUICK LINKS */
+    .quick-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin:18px auto 48px;
+    }
+    .quick{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      text-align:center;
+      text-decoration:none;
+      transition:.2s ease;
+    }
+    .quick:hover{
+      transform:translateY(-3px);
+      border-color:#3b3b44;
+      text-decoration:none;
+    }
+    .quick i{
+      color:var(--yellow);
+      font-size:1.2rem;
+      margin-bottom:9px;
+    }
+    .quick strong{
+      display:block;
+      color:var(--text);
+      font-size:.9rem;
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
+    /* SECTION */
+    main{padding-bottom:76px}
+    .help-section{
+      margin-bottom:34px;
+    }
+    .section-head{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:14px;
+    }
+    .section-head i{
+      width:38px;height:38px;border-radius:11px;
+      display:grid;place-items:center;
+      background:rgba(255,214,0,.09);
+      color:var(--yellow);
+    }
+    .section-head h2{
+      font-size:1.28rem;
+      color:var(--yellow);
+    }
 
-        .subtitle {
-            color: var(--text-sub);
-            font-size: 1.05rem;
-        }
+    details{
+      background:linear-gradient(180deg,var(--card),#141419);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:17px 19px;
+      margin-bottom:11px;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:center;
+      font-weight:800;
+      font-size:.98rem;
+    }
+    summary::-webkit-details-marker{display:none}
+    summary::after{
+      content:"+";
+      color:var(--yellow);
+      font-size:1.2rem;
+      flex:0 0 auto;
+    }
+    details[open] summary::after{content:"−"}
+    details p{
+      color:var(--muted);
+      font-size:.91rem;
+      margin-top:11px;
+    }
+    details ul{
+      color:var(--muted);
+      font-size:.9rem;
+      padding-left:20px;
+      margin-top:10px;
+    }
+    details li{margin-bottom:7px}
+    details strong{color:var(--text)}
+    code{
+      background:rgba(255,214,0,.09);
+      color:var(--yellow);
+      padding:2px 6px;
+      border-radius:5px;
+      font-size:.88em;
+    }
 
-        section {
-            margin-bottom: 3rem;
-        }
+    /* SANGAM FEATURE */
+    .sangam-card{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:28px;
+      align-items:center;
+      background:
+        radial-gradient(circle at 12% 20%,rgba(255,214,0,.08),transparent 30%),
+        linear-gradient(180deg,#18181e,#121216);
+      border:1px solid rgba(255,214,0,.17);
+      border-radius:22px;
+      padding:26px;
+      margin-bottom:34px;
+    }
+    .sangam-visual{
+      border:1px solid var(--border);
+      background:#101014;
+      border-radius:18px;
+      padding:20px;
+    }
+    .live{
+      font-weight:800;
+      margin-bottom:14px;
+    }
+    .dot{
+      width:9px;height:9px;border-radius:50%;
+      background:#e94722;
+      display:inline-block;
+      margin-right:8px;
+    }
+    .sangam-stat{
+      display:flex;
+      justify-content:space-between;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:.86rem;
+    }
+    .sangam-stat:last-child{border-bottom:0}
+    .sangam-stat strong{color:var(--yellow)}
+    .sangam-copy p{color:var(--muted);font-size:.92rem}
 
-        h2 {
-            color: var(--accent-yellow);
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    /* SUPPORT */
+    .support-card{
+      text-align:center;
+      background:
+        radial-gradient(circle at 50% 120%,rgba(255,214,0,.15),transparent 44%),
+        var(--card);
+      border:1px solid var(--border);
+      border-radius:26px;
+      padding:44px 24px;
+      margin-top:44px;
+    }
+    .support-card i{
+      color:var(--yellow);
+      font-size:1.6rem;
+      margin-bottom:12px;
+    }
+    .support-card h3{
+      font-size:1.65rem;
+      margin-bottom:8px;
+    }
+    .support-card p{
+      color:var(--muted);
+      font-size:.9rem;
+      margin-bottom:10px;
+    }
+    .support-email{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 16px;
+      background:var(--yellow);
+      color:#111;
+      border-radius:12px;
+      font-weight:800;
+      margin-top:8px;
+      text-decoration:none;
+    }
+    .support-email:hover{text-decoration:none;transform:translateY(-1px)}
 
-        .faq-item {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 1.5rem;
-            border-radius: 16px;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--accent-yellow);
-            transition: transform 0.2s ease;
-        }
+    footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:38px 0 26px;
+    }
+    .footer-top{
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+    }
+    .footer-copy{
+      color:var(--muted);
+      font-size:.84rem;
+      margin-top:8px;
+    }
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px 20px;
+      justify-content:flex-end;
+    }
+    .footer-links a{
+      color:var(--muted);
+      font-size:.84rem;
+      text-decoration:none;
+    }
+    .footer-links a:hover{color:var(--yellow)}
+    .copyright{
+      color:var(--muted-2);
+      border-top:1px solid rgba(255,255,255,.05);
+      margin-top:26px;
+      padding-top:18px;
+      font-size:.77rem;
+    }
 
-        .faq-item:hover {
-            transform: translateY(-2px);
-        }
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:.6s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
 
-        .question {
-            font-weight: 700;
-            color: var(--text-main);
-            font-size: 1.05rem;
-            margin-bottom: 0.6rem;
-            display: block;
-        }
+    @media(max-width:900px){
+      .quick-grid{grid-template-columns:repeat(2,1fr)}
+      .sangam-card{grid-template-columns:1fr}
+    }
 
-        .answer {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
+    @media(max-width:780px){
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:74px;left:0;right:0;
+        background:rgba(11,11,13,.98);
+        border-bottom:1px solid var(--border);
+        padding:18px 20px;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .nav-links.open{display:flex}
+      .menu-btn{display:block}
+      .nav-cta{width:100%;text-align:center}
+      .hero{padding-top:62px}
+    }
 
-        code {
-            background: rgba(255, 210, 0, 0.1);
-            color: var(--accent-yellow);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.9em;
-        }
-
-        /* Support CTA Card */
-        .support-card {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            background: linear-gradient(135deg, #1A1921 0%, #252330 100%);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            margin-top: 3rem;
-        }
-
-        .support-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .support-card p {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .support-card a {
-            color: var(--accent-yellow);
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-        }
-
-        .support-card a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-dark);
-            border-top: 1px solid var(--card-border);
-            padding: 2rem 8%;
-            text-align: center;
-            color: #666;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-        }
-    </style>
+    @media(max-width:500px){
+      .wrap{width:min(var(--max),calc(100% - 28px))}
+      .quick-grid{grid-template-columns:1fr 1fr}
+      .quick{padding:15px 10px}
+      h1{letter-spacing:-1.7px}
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- Header (Plain, No Back Button) -->
-    <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="NaamSetu Logo" class="logo-img">
-            <div class="logo-text"><span class="naam">Naam</span><span class="setu">Setu</span></div>
-        </div>
-    </header>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="NaamSetu Home">
+      <img src="logo.png" alt="NaamSetu logo" />
+      <div class="brand-name"><span>Naam</span><span>Setu</span></div>
+    </a>
 
-    <!-- Main Container -->
-    <div class="container">
-        <div class="page-header">
-            <h1>Help & Support</h1>
-            <p class="subtitle">Everything you need to know about your spiritual companion.</p>
-        </div>
+    <button class="menu-btn" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
 
-        <section id="getting-started">
-            <h2><i class="fas fa-rocket"></i> 1. Getting Started</h2>
-            
-            <div class="faq-item">
-                <span class="question">How do I start a Jap session?</span>
-                <div class="answer">Open the App, select your desired Mantra from the home screen, and tap the Jap button. Each tap counts as one chant. The counter will automatically track your progress towards a "Mala" (108 cycles).</div>
-            </div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="about">About</a>
+      <a href="privacy">Privacy</a>
+      <a href="terms">Terms</a>
+      <a class="active" href="help">Support</a>
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.naamsetu.app">Get the App</a>
+    </nav>
+  </div>
+</header>
 
-            <div class="faq-item">
-                <span class="question">What is the "Global Handy Circle" and how do I use it?</span>
-                <div class="answer">The Global Handy Circle is a floating overlay that lets you count Japs while using other apps. To enable it, you must grant the <strong>"Appear on top"</strong> (System Alert Window) permission in your device settings. Once enabled, you can minimize NaamSetu and keep chanting via the floating icon.</div>
-            </div>
-        </section>
+<section class="hero">
+  <div class="wrap reveal">
+    <div class="eyebrow"><i class="fa-solid fa-life-ring"></i> NaamSetu Support</div>
+    <h1>Help & Support</h1>
+    <p>
+      Find quick answers for Jap counting, sync, streaks, Aura, Sangh, Sangam, Premium and common troubleshooting.
+    </p>
+  </div>
+</section>
 
-        <section id="account-data">
-            <h2><i class="fas fa-sync-alt"></i> 2. Account & Data Syncing</h2>
+<main class="wrap">
 
-            <div class="faq-item">
-                <span class="question">How does my data stay safe?</span>
-                <div class="answer">NaamSetu uses an <strong>Offline-First Architecture</strong>. Your Jap counts are saved instantly to your device's local database (Room DB). This ensures you never lose a chant even without internet. When you go online, these counts are seamlessly synced to our secure cloud (Firebase).</div>
-            </div>
+  <div class="quick-grid reveal">
+    <a class="quick" href="#getting-started">
+      <i class="fa-solid fa-rocket"></i>
+      <strong>Getting Started</strong>
+    </a>
+    <a class="quick" href="#account-data">
+      <i class="fa-solid fa-cloud-arrow-up"></i>
+      <strong>Account & Sync</strong>
+    </a>
+    <a class="quick" href="#features">
+      <i class="fa-solid fa-fire"></i>
+      <strong>Features</strong>
+    </a>
+    <a class="quick" href="#troubleshooting">
+      <i class="fa-solid fa-screwdriver-wrench"></i>
+      <strong>Troubleshooting</strong>
+    </a>
+  </div>
 
-            <div class="faq-item">
-                <span class="question">Can I use NaamSetu on multiple devices?</span>
-                <div class="answer">Yes! Simply sign in with the same Google or Email account on both devices. Your progress, streaks, and Divine Cards will sync automatically once you are online.</div>
-            </div>
-
-            <div class="faq-item">
-                <span class="question">What happens if I uninstall the app?</span>
-                <div class="answer">If you are signed in, your data is backed up in the cloud. However, if you use the app as a guest, uninstalling will delete your local progress permanently. We recommend signing in to protect your Sadhana history.</div>
-            </div>
-
-            <div class="faq-item">
-                <span class="question">Can I recover my account after deleting it?</span>
-                <div class="answer">If you manually delete your account from within the app, you may request account recovery by reaching out to our support team within <strong>48 hours</strong> of deletion. However, please note that <strong>account restoration is not guaranteed</strong> due to various technical factors, high request volumes, or automated data purge queues. Once the 48-hour window passes or if data wiping completes, account restoration will no longer be possible under any circumstances.</div>
-            </div>
-        </section>
-
-        <section id="gamification">
-            <h2><i class="fas fa-trophy"></i> 3. Gamification & Features</h2>
-
-            <div class="faq-item">
-                <span class="question">How do Streaks and Streak Savers work?</span>
-                <div class="answer">Perform at least one Mala every day to maintain your streak. If you miss a day, your streak will reset unless you have a <strong>Streak Saver</strong> active. You can earn Savers through milestones or purchase them with Coins.</div>
-            </div>
-
-            <div class="faq-item">
-                <span class="question">What are Aura Points and Divine Cards?</span>
-                <div class="answer">Aura Points reflect your spiritual consistency. As you chant, you earn Aura and Virtual Coins. These can be used to unlock <strong>Divine Cards</strong>—unique digital collectibles that represent different deities and spiritual levels.</div>
-            </div>
-
-            <div class="faq-item">
-                <span class="question">How does the Global Sangh Leaderboard work?</span>
-                <div class="answer">The Leaderboard ranks users globally based on their total Jap count and Aura. It updates in real-time. To ensure fairness, we use <strong>Google Play Integrity</strong> and internal anti-cheat systems to detect and ban auto-clickers or automated scripts.</div>
-            </div>
-        </section>
-
-        <section id="troubleshooting">
-            <h2><i class="fas fa-wrench"></i> 4. Troubleshooting</h2>
-
-            <div class="faq-item">
-                <span class="question">My Jap count isn't updating on the Leaderboard.</span>
-                <div class="answer">Ensure you have a stable internet connection. Sometimes it takes a few minutes for the sync to reflect on the global servers. If it persists, try restarting the app.</div>
-            </div>
-
-            <div class="faq-item">
-                <span class="question">Ads are not loading or causing lag.</span>
-                <div class="answer">We use Google AdMob for monetization. If ads don't load, check your internet or ad-blocker settings. If the app freezes, please clear the app cache from <code>Settings > Apps > NaamSetu > Storage</code>.</div>
-            </div>
-
-            <div class="faq-item">
-                <span class="question">I made a purchase but didn't receive the items.</span>
-                <div class="answer">Purchases are handled via Google Play Billing. If your items don't appear within 10 minutes, go to Settings and tap <strong>"Restore Purchases."</strong> If the issue continues, contact us with your Google Play transaction ID.</div>
-            </div>
-        </section>
-
-        <div class="support-card">
-            <h3>Still need help?</h3>
-            <p>Our support team is here for you. Email us at:</p>
-            <p><a href="mailto:support@naamsetu.com"><i class="fas fa-envelope"></i> support@naamsetu.com</a></p>
-            <p style="font-size: 0.85em; margin-top: 10px; opacity: 0.7;">We typically respond within 24 to 48 hours.</p>
-        </div>
+  <section class="help-section reveal" id="getting-started">
+    <div class="section-head">
+      <i class="fa-solid fa-rocket"></i>
+      <h2>1. Getting Started</h2>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2026 NaamSetu Dev Team. All rights reserved.
-    </footer>
+    <details open>
+      <summary>How do I start Naam Jap?</summary>
+      <p>
+        Open NaamSetu, choose a mantra and enter the Jap experience. Each valid tap counts as one Jap, and every 108 Jap completes one mala cycle.
+      </p>
+    </details>
+
+    <details>
+      <summary>What is Global Handy Circle?</summary>
+      <p>
+        Global Handy Circle is a Premium feature that places a small floating Jap circle above other apps. Once enabled with the required Android “Appear on top” permission, you can continue counting Jap even while using apps such as WhatsApp, Instagram or other supported screens. Jap counted through Global Handy Circle is added directly to your main NaamSetu account totals and progress.
+      </p>
+    </details>
+
+    <details>
+      <summary>Do I need an internet connection to Jap?</summary>
+      <p>
+        Supported Jap activity is designed to remain resilient to temporary connectivity problems and can be synchronized when internet access is available. Online features such as Sangh, Sangam, cloud sync and some content require connectivity.
+      </p>
+    </details>
+  </section>
+
+  <section class="help-section reveal" id="account-data">
+    <div class="section-head">
+      <i class="fa-solid fa-cloud-arrow-up"></i>
+      <h2>2. Account & Data</h2>
+    </div>
+
+    <details>
+      <summary>How is my NaamSetu account created?</summary>
+      <p>
+        NaamSetu currently uses Google Sign-In through Firebase Authentication. Your account is connected to the Google account you choose during sign-in.
+      </p>
+    </details>
+
+    <details>
+      <summary>How does Jap syncing work?</summary>
+      <p>
+        Supported Jap activity is saved locally first and synchronized with NaamSetu’s Firebase-backed cloud services when connectivity is available. This helps reduce the chance that temporary network issues interrupt your practice.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can I use NaamSetu on more than one device?</summary>
+      <p>
+        You can sign in using the same Google account on supported devices. Cloud-backed account and progress data can synchronize where the relevant feature supports it. Some local-only state may still depend on the device.
+      </p>
+    </details>
+
+    <details>
+      <summary>What happens if I uninstall the app?</summary>
+      <p>
+        Uninstalling removes local app data stored on that device. Data already synchronized with your NaamSetu account may remain available in the cloud. Unsynced local activity may not be recoverable after uninstalling.
+      </p>
+    </details>
+
+    <details>
+      <summary>How do I delete my account?</summary>
+      <p>
+        NaamSetu provides an account-deletion option inside the app. If you cannot access that flow, contact <a href="mailto:support@naamsetu.com">support@naamsetu.com</a> for help.
+      </p>
+    </details>
+  </section>
+
+  <section class="help-section reveal" id="features">
+    <div class="section-head">
+      <i class="fa-solid fa-fire"></i>
+      <h2>3. Streaks, Aura & Community</h2>
+    </div>
+
+    <details>
+      <summary>How does the daily streak work?</summary>
+      <p>
+        Your streak is based on qualifying Naam Jap activity across consecutive days. NaamSetu tracks daily progress and may provide supported streak-protection features such as an Emergency Streak Saver.
+      </p>
+    </details>
+
+    <details>
+      <summary>What are Aura and Coins?</summary>
+      <p>
+        Aura and Coins are NaamSetu progression systems. Coins can be used for supported in-app features and unlocks, while Aura contributes to your progress and social identity inside NaamSetu.
+      </p>
+    </details>
+
+    <details>
+      <summary>What are Divine Cards?</summary>
+      <p>
+        Divine Cards are devotional digital collectibles inside NaamSetu. Supported cards can be unlocked and upgraded using the app’s progression systems.
+      </p>
+    </details>
+
+    <details>
+      <summary>How does the Sangh leaderboard work?</summary>
+      <p>
+        The Sangh experience lets you discover fellow seekers, follow profiles and view community rankings. Ranking logic may evolve as NaamSetu’s Aura and social systems develop.
+      </p>
+    </details>
+  </section>
+
+  <section class="sangam-card reveal">
+    <div class="sangam-visual">
+      <div class="live"><span class="dot"></span>LIVE SANGAM</div>
+      <div class="sangam-stat"><span>Join method</span><strong>QR</strong></div>
+      <div class="sangam-stat"><span>Minimum room size</span><strong>2</strong></div>
+      <div class="sangam-stat"><span>Mala milestone</span><strong>108 Jap</strong></div>
+    </div>
+
+    <div class="sangam-copy">
+      <div class="section-head" style="margin-bottom:10px;">
+        <i class="fa-solid fa-users"></i>
+        <h2>4. Sangam</h2>
+      </div>
+      <p>
+        Sangam is NaamSetu’s real-time group Jap experience for people who are physically together. One user creates a room and other nearby participants join by scanning its QR code.
+      </p>
+    </div>
+  </section>
+
+  <section class="help-section reveal" id="premium">
+    <div class="section-head">
+      <i class="fa-solid fa-crown"></i>
+      <h2>5. Premium & Subscription</h2>
+    </div>
+
+    <details>
+      <summary>How do I manage or cancel Premium?</summary>
+      <p>
+        Use NaamSetu’s subscription-management option or open Google Play subscriptions. Google Play controls billing, renewal and cancellation for supported NaamSetu subscriptions.
+      </p>
+    </details>
+
+    <details>
+      <summary>Why did Premium expire during the day instead of at midnight?</summary>
+      <p>
+        Google Play subscriptions use an exact entitlement-expiry timestamp. If your access expires at a particular time on the displayed date, NaamSetu may remove Premium at that exact time rather than waiting until midnight.
+      </p>
+    </details>
+
+    <details>
+      <summary>I purchased Premium but it is not showing. What should I do?</summary>
+      <p>
+        First confirm you are signed into NaamSetu and Google Play with the expected account, then reopen the app with an internet connection. If the entitlement still does not appear, contact support and include the Google Play order or transaction details shown in your receipt.
+      </p>
+    </details>
+  </section>
+
+  <section class="help-section reveal" id="troubleshooting">
+    <div class="section-head">
+      <i class="fa-solid fa-screwdriver-wrench"></i>
+      <h2>6. Troubleshooting</h2>
+    </div>
+
+    <details>
+      <summary>My Jap is not appearing on community stats immediately.</summary>
+      <p>
+        Some server-backed totals or leaderboard views may update after synchronization or scheduled aggregation. Check your internet connection and allow the app a little time to sync before troubleshooting further.
+      </p>
+    </details>
+
+    <details>
+      <summary>Ads are not loading.</summary>
+      <p>
+        Ad availability depends on NaamSetu’s current ad configuration, your Premium status, Google AdMob fill and connectivity. If ads are globally disabled by NaamSetu, they should not appear at all.
+      </p>
+    </details>
+
+    <details>
+      <summary>The app feels stuck or a screen is not updating.</summary>
+      <p>
+        Close and reopen NaamSetu first. If the problem continues, check your connection and make sure you are using the latest available version from Google Play. Avoid clearing app storage unless necessary because doing so removes local app data from that device.
+      </p>
+    </details>
+
+    <details>
+      <summary>Sangam is not letting someone join.</summary>
+      <p>
+        Confirm the room is still active, the joining user is scanning the current room QR and both devices have internet access. Sangam is designed for nearby participants using the QR flow rather than remote invitation requests.
+      </p>
+    </details>
+  </section>
+
+  <div class="support-card reveal">
+    <i class="fa-solid fa-envelope-open-text"></i>
+    <h3>Still need help?</h3>
+    <p>Contact NaamSetu support and describe the issue, your device model and the app screen where the problem occurs.</p>
+    <a class="support-email" href="mailto:support@naamsetu.com">
+      <i class="fa-solid fa-envelope" style="color:#111;margin:0;"></i>
+      support@naamsetu.com
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="brand-name"><span>Naam</span><span>Setu</span></div>
+        <div class="footer-copy">connect • chant • grow • together</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="about">About Us</a>
+        <a href="privacy">Privacy Policy</a>
+        <a href="terms">Terms & Conditions</a>
+        <a href="shipping-policy">Shipping Policy</a>
+        <a href="store-policy">Store Policy</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 NaamSetu. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+  }
+
+  document.querySelectorAll(".nav-links a").forEach(a => {
+    a.addEventListener("click", () => {
+      document.querySelector(".nav-links").classList.remove("open");
+    });
+  });
+</script>
 
 </body>
 </html>
