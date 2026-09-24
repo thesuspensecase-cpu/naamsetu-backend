@@ -1,157 +1,791 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - NaamSetu</title>
-    <style>
-        :root {
-            --primary-color: #673AB7;
-            --secondary-color: #FF9800;
-            --text-color: #333;
-            --bg-color: #fff;
-            --card-bg: #f5f5f5;
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary-color: #D1C4E9;
-                --secondary-color: #FFB74D;
-                --text-color: #eee;
-                --bg-color: #121212;
-                --card-bg: #1e1e1e;
-            }
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #673AB7 0%, #9C27B0 100%);
-            color: white;
-            border-radius: 0 0 50px 50px;
-        }
-        .hero h1 { margin: 0; font-size: 3em; letter-spacing: 2px; }
-        .hero p { font-size: 1.2em; opacity: 0.9; margin-top: 10px; }
-        
-        .section { margin-top: 50px; }
-        h2 { color: var(--primary-color); border-left: 5px solid var(--secondary-color); padding-left: 15px; margin-bottom: 25px; }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .feature-card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-        }
-        .feature-card:hover { transform: translateY(-5px); }
-        .feature-card h3 { color: var(--secondary-color); margin-top: 0; }
-        
-        .mission-box {
-            background: var(--primary-color);
-            color: white;
-            padding: 40px;
-            border-radius: 25px;
-            text-align: center;
-            margin-top: 60px;
-        }
-        .mission-box h2 { color: white; border: none; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
+  <title>About NaamSetu — Connect • Chant • Grow • Together</title>
+  <meta name="description" content="Learn why NaamSetu was created — a modern Naam Jap companion built to help seekers chant consistently, track progress, build streaks and grow together through Sangh and Sangam." />
+  <meta name="theme-color" content="#0b0b0d" />
 
-        .footer {
-            text-align: center;
-            margin-top: 80px;
-            padding-bottom: 40px;
-            font-size: 0.9em;
-            opacity: 0.7;
-        }
-    </style>
+  <meta property="og:title" content="About NaamSetu" />
+  <meta property="og:description" content="A digital bridge between daily life and consistent Naam Jap." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://naamsetu.com/about" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <style>
+    :root{
+      --bg:#0b0b0d;
+      --bg-soft:#101014;
+      --card:#17171c;
+      --card-2:#1d1d23;
+      --border:#2a2a31;
+      --yellow:#ffd600;
+      --orange:#ff7a00;
+      --green:#1bd478;
+      --red:#ef4a4a;
+      --purple:#a970ff;
+      --blue:#5d9cff;
+      --text:#fff;
+      --muted:#aaaab5;
+      --muted-2:#7d7d88;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Plus Jakarta Sans",sans-serif;
+      background:
+        radial-gradient(circle at 18% 0%,rgba(255,214,0,.06),transparent 26%),
+        radial-gradient(circle at 85% 15%,rgba(255,122,0,.05),transparent 24%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.7;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+
+    /* NAV */
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(11,11,13,.84);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      min-height:74px;
+      display:flex;align-items:center;justify-content:space-between;gap:22px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:11px;
+      text-decoration:none;
+    }
+    .brand img{
+      width:42px;height:42px;border-radius:12px;object-fit:contain;
+    }
+    .brand-name{
+      font-size:1.45rem;font-weight:800;letter-spacing:-.6px;
+    }
+    .brand-name span:last-child{color:var(--yellow)}
+
+    .nav-links{
+      display:flex;align-items:center;gap:24px;
+    }
+    .nav-links a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:.9rem;
+      font-weight:700;
+      transition:.2s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active{color:var(--yellow)}
+    .nav-cta{
+      background:var(--yellow);
+      color:#111!important;
+      padding:10px 16px;
+      border-radius:12px;
+    }
+    .menu-btn{
+      display:none;
+      border:0;
+      background:none;
+      color:var(--yellow);
+      font-size:1.45rem;
+      cursor:pointer;
+    }
+
+    /* HERO */
+    .hero{
+      padding:96px 0 72px;
+      text-align:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,214,0,.25);
+      background:rgba(255,214,0,.07);
+      color:var(--yellow);
+      border-radius:999px;
+      padding:8px 15px;
+      font-size:.78rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:1.3px;
+      margin-bottom:22px;
+    }
+    h1{
+      font-size:clamp(2.9rem,7vw,5.5rem);
+      line-height:1;
+      letter-spacing:-3px;
+      max-width:920px;
+      margin:0 auto 22px;
+    }
+    .grad{
+      background:linear-gradient(90deg,var(--yellow),var(--orange));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .hero p{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:1.08rem;
+    }
+
+    /* GENERAL */
+    section{padding:82px 0}
+    .section-head{
+      max-width:760px;
+      margin-bottom:34px;
+    }
+    .kicker{
+      color:var(--yellow);
+      text-transform:uppercase;
+      letter-spacing:1.6px;
+      font-size:.76rem;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+    h2{
+      font-size:clamp(2rem,4vw,3rem);
+      line-height:1.12;
+      letter-spacing:-1.5px;
+      margin-bottom:14px;
+    }
+    .section-head p,
+    .section-copy{
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    /* VISION */
+    .vision-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:28px;
+      align-items:stretch;
+    }
+    .vision-card,
+    .quote-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:26px;
+      padding:30px;
+    }
+    .vision-card p{
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+    .vision-card strong{color:var(--text)}
+    .quote-card{
+      background:
+        radial-gradient(circle at 70% 20%,rgba(255,214,0,.12),transparent 34%),
+        linear-gradient(180deg,#18181d,#111115);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .quote-symbol{
+      color:var(--yellow);
+      font-size:2rem;
+      margin-bottom:16px;
+    }
+    .quote-card blockquote{
+      font-size:1.35rem;
+      line-height:1.5;
+      font-weight:700;
+    }
+    .quote-card small{
+      display:block;
+      color:var(--muted);
+      margin-top:22px;
+    }
+
+    /* FEATURE GRID */
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      margin-top:30px;
+    }
+    .feature{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:24px;
+      transition:.22s ease;
+    }
+    .feature:hover{
+      transform:translateY(-4px);
+      border-color:#3d3d46;
+    }
+    .feature-icon{
+      width:52px;height:52px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      font-size:1.25rem;
+      margin-bottom:16px;
+    }
+    .i-yellow{color:var(--yellow);background:rgba(255,214,0,.1)}
+    .i-orange{color:var(--orange);background:rgba(255,122,0,.12)}
+    .i-green{color:var(--green);background:rgba(27,212,120,.1)}
+    .i-blue{color:var(--blue);background:rgba(93,156,255,.11)}
+    .i-purple{color:var(--purple);background:rgba(169,112,255,.11)}
+    .i-red{color:var(--red);background:rgba(239,74,74,.11)}
+    .feature h3{
+      margin-bottom:8px;
+      font-size:1.14rem;
+    }
+    .feature p{
+      color:var(--muted);
+      font-size:.91rem;
+    }
+
+    /* SANGAM */
+    .sangam{
+      background:var(--bg-soft);
+      border-top:1px solid rgba(255,255,255,.05);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .sangam-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:48px;
+      align-items:center;
+    }
+    .sangam-box{
+      background:linear-gradient(180deg,#19191f,#121216);
+      border:1px solid rgba(255,214,0,.2);
+      border-radius:26px;
+      padding:28px;
+    }
+    .live{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      font-weight:800;
+      margin-bottom:20px;
+    }
+    .dot{
+      width:9px;height:9px;border-radius:50%;
+      background:#e94722;
+    }
+    .sangam-points{
+      display:grid;
+      gap:12px;
+    }
+    .sangam-point{
+      display:flex;
+      gap:12px;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#111115;
+      color:var(--muted);
+    }
+    .sangam-point i{
+      color:var(--yellow);
+      margin-top:4px;
+    }
+
+    /* MISSION */
+    .mission-card{
+      background:
+        radial-gradient(circle at 85% 10%,rgba(255,214,0,.14),transparent 28%),
+        linear-gradient(135deg,#17171d,#111115);
+      border:1px solid rgba(255,214,0,.16);
+      border-radius:28px;
+      padding:38px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:30px;
+      align-items:center;
+    }
+    .mission-number{
+      text-align:center;
+      padding:24px;
+    }
+    .mission-number strong{
+      display:block;
+      color:var(--yellow);
+      font-size:clamp(2.5rem,6vw,4.6rem);
+      line-height:1;
+      letter-spacing:-2px;
+    }
+    .mission-number span{
+      display:block;
+      color:var(--muted);
+      margin-top:8px;
+      font-size:.88rem;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-weight:700;
+    }
+
+    /* TRUST */
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:26px;
+    }
+    .trust{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:20px;
+    }
+    .trust i{
+      color:var(--yellow);
+      margin-bottom:12px;
+      font-size:1.2rem;
+    }
+    .trust h3{
+      font-size:1rem;
+      margin-bottom:6px;
+    }
+    .trust p{
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    /* FOUNDER NOTE */
+    .founder-note{
+      max-width:820px;
+      margin:auto;
+      text-align:center;
+      padding:42px 30px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:26px;
+    }
+    .founder-note .om{
+      color:var(--yellow);
+      font-size:2rem;
+      margin-bottom:12px;
+    }
+    .founder-note p{
+      color:var(--muted);
+      margin-top:12px;
+    }
+
+    /* CTA */
+    .cta{
+      text-align:center;
+      background:
+        radial-gradient(circle at 50% 110%,rgba(255,214,0,.15),transparent 44%),
+        var(--card);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:52px 24px;
+    }
+    .cta p{
+      color:var(--muted);
+      max-width:620px;
+      margin:12px auto 22px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-height:52px;
+      padding:0 22px;
+      background:var(--yellow);
+      color:#111;
+      text-decoration:none;
+      border-radius:14px;
+      font-weight:800;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:44px 0 28px;
+    }
+    .footer-top{
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+    }
+    .footer-copy{
+      color:var(--muted);
+      font-size:.86rem;
+      max-width:370px;
+      margin-top:9px;
+    }
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px 22px;
+      justify-content:flex-end;
+    }
+    .footer-links a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:.85rem;
+    }
+    .footer-links a:hover{color:var(--yellow)}
+    .copyright{
+      color:var(--muted-2);
+      border-top:1px solid rgba(255,255,255,.05);
+      margin-top:28px;
+      padding-top:20px;
+      font-size:.78rem;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(20px);
+      transition:.65s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    @media(max-width:900px){
+      .vision-grid,
+      .sangam-grid,
+      .mission-card{
+        grid-template-columns:1fr;
+      }
+      .feature-grid{grid-template-columns:1fr}
+      .trust-grid{grid-template-columns:1fr}
+      .mission-number{text-align:left;padding:0}
+    }
+
+    @media(max-width:760px){
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:74px;left:0;right:0;
+        background:rgba(11,11,13,.98);
+        border-bottom:1px solid var(--border);
+        padding:18px 20px;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .nav-links.open{display:flex}
+      .menu-btn{display:block}
+      .nav-cta{width:100%;text-align:center}
+      .hero{padding-top:66px}
+      h1{letter-spacing:-2px}
+      section{padding:68px 0}
+    }
+
+    @media(max-width:500px){
+      .wrap{width:min(var(--max),calc(100% - 28px))}
+      .vision-card,.quote-card,.mission-card,.founder-note{padding:22px}
+    }
+  </style>
 </head>
+
 <body>
 
-    <header class="hero">
-        <h1>NaamSetu</h1>
-        <p>Your Spiritual Bridge to Consistency</p>
-    </header>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="NaamSetu Home">
+      <img src="logo.png" alt="NaamSetu logo" />
+      <div class="brand-name"><span>Naam</span><span>Setu</span></div>
+    </a>
 
-    <div class="container">
-        
-        <section class="section">
-            <h2>The Vision</h2>
-            <p>In the whirlwind of modern life, maintaining a consistent spiritual practice can often feel out of reach. <strong>NaamSetu</strong> was born from a simple yet profound vision: to build a "Setu" (Bridge) between our daily digital existence and our timeless spiritual roots. We believe that technology, when used mindfully, shouldn't be a distraction, but a powerful catalyst for devotion.</p>
-        </section>
+    <button class="menu-btn" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
 
-        <section class="section">
-            <h2>Crafted for Sadhakas</h2>
-            <p>NaamSetu is not just an app; it is a companion for your spiritual journey. Every pixel and line of code is designed to enhance your "Naam-Jap" experience.</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Digital Jap Counter</h3>
-                    <p>Experience an intuitive counting interface with haptic feedback that mimics the physical sensation of a Mala, allowing you to focus entirely on the chant.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Global Handy Circle</h3>
-                    <p>Our unique foreground overlay tool ensures your chanting never stops. Count your Japs seamlessly while reading, browsing, or working on your device.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Global Sangh</h3>
-                    <p>You are never alone in your Sadhana. Connect with a global community of seekers through our Global Sangh Leaderboard, fostering a spirit of healthy devotion and collective growth.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Divine Rewards</h3>
-                    <p>Stay motivated with our gamified ecosystem. Earn Aura Points, unlock Divine Cards, maintain Streaks, and use Boosters to reach new milestones in your spiritual progress.</p>
-                </div>
-            </div>
-        </section>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a class="active" href="about">About</a>
+      <a href="/#sangam">Sangam</a>
+      <a href="privacy">Privacy</a>
+      <a href="help">Support</a>
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.naamsetu.app">Get the App</a>
+    </nav>
+  </div>
+</header>
 
-        <section class="section">
-            <h2>Our Mission</h2>
-            <div class="mission-box">
-                <h2>Empowering 1 Million Seekers</h2>
-                <p>Our mission is to empower a global community of seekers to build unwavering consistency in their Sadhana. By providing tools that track progress and provide deep insights through Sadhana Analytics, we help you turn sporadic efforts into a lifelong habit of devotion.</p>
-            </div>
-        </section>
+<main>
 
-        <section class="section">
-            <h2>Privacy & Trust</h2>
-            <p>We respect the sanctity of your spiritual data. NaamSetu follows an <strong>Offline-First Architecture</strong>. Your Jap counts and personal progress are stored securely on your device using a local Room Database. Cloud synchronization via Firebase is used strictly to ensure your data stays safe across devices and to power community features like the Leaderboard.</p>
-            <div class="trust-badge">
-                <span>✓ Local-First Data</span>
-                <span>✓ Secure Sync</span>
-                <span>✓ Community Focused</span>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <p>Made with devotion by the NaamSetu Dev Team.</p>
-            <p>&copy; 2026 NaamSetu. Connect. Chant. Evolve.</p>
-        </footer>
+  <section class="hero">
+    <div class="wrap reveal">
+      <div class="eyebrow"><i class="fa-solid fa-link"></i> The story behind NaamSetu</div>
+      <h1>A digital bridge to <span class="grad">consistent Naam Jap.</span></h1>
+      <p>
+        NaamSetu was created with one simple belief: technology should not pull us away from devotion — it can help us return to it with more consistency, awareness and community.
+      </p>
     </div>
+  </section>
+
+  <section>
+    <div class="wrap vision-grid">
+      <article class="vision-card reveal">
+        <div class="kicker">The Vision</div>
+        <h2>Why “NaamSetu”?</h2>
+        <p>
+          <strong>“Setu” means bridge.</strong> NaamSetu is designed as a bridge between modern daily life and the timeless practice of Naam Jap.
+        </p>
+        <p>
+          In a world full of notifications, schedules and distractions, even a deeply valued spiritual practice can become inconsistent. NaamSetu brings Jap counting, mala progress, streaks, Aura, analytics and community into one focused experience.
+        </p>
+        <p>
+          The goal is not to replace traditional practice — it is to support the seeker in staying regular, mindful and connected.
+        </p>
+      </article>
+
+      <aside class="quote-card reveal">
+        <div>
+          <div class="quote-symbol"><i class="fa-solid fa-quote-left"></i></div>
+          <blockquote>
+            “A small daily practice, repeated with devotion, can become a lifelong rhythm.”
+          </blockquote>
+        </div>
+        <small>NaamSetu • connect • chant • grow • together</small>
+      </aside>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Built for seekers</div>
+        <h2>A companion for everyday sadhana.</h2>
+        <p>
+          Every major NaamSetu feature is built around one idea: make Naam Jap easier to continue, understand and share without making the experience noisy.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature reveal">
+          <div class="feature-icon i-orange"><i class="fa-solid fa-om"></i></div>
+          <h3>Digital Jap Counter</h3>
+          <p>
+            Choose your mantra, count each Jap and complete 108-count mala cycles in a focused digital experience.
+          </p>
+        </article>
+
+        <article class="feature reveal">
+          <div class="feature-icon i-yellow"><i class="fa-solid fa-fire"></i></div>
+          <h3>Streaks & Consistency</h3>
+          <p>
+            Keep track of your daily continuity and build a rhythm that turns occasional effort into a regular practice.
+          </p>
+        </article>
+
+        <article class="feature reveal">
+          <div class="feature-icon i-green"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Sadhana Analytics</h3>
+          <p>
+            See your Jap progress, daily activity and long-term totals so your growth stays visible and meaningful.
+          </p>
+        </article>
+
+        <article class="feature reveal">
+          <div class="feature-icon i-blue"><i class="fa-solid fa-circle-dot"></i></div>
+          <h3>Bubble Jap</h3>
+          <p>
+            Use NaamSetu’s dedicated Bubble Jap experience for a different way to continue your chanting practice.
+          </p>
+        </article>
+
+        <article class="feature reveal">
+          <div class="feature-icon i-red"><i class="fa-solid fa-users"></i></div>
+          <h3>Sangh & Leaderboard</h3>
+          <p>
+            Discover fellow seekers, follow profiles and see community rankings through NaamSetu’s social Sangh experience.
+          </p>
+        </article>
+
+        <article class="feature reveal">
+          <div class="feature-icon i-purple"><i class="fa-solid fa-layer-group"></i></div>
+          <h3>Aura & Divine Cards</h3>
+          <p>
+            Earn progress-based rewards, unlock devotional cards and build Aura as part of your NaamSetu identity.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sangam" id="sangam">
+    <div class="wrap sangam-grid">
+      <div class="sangam-box reveal">
+        <div class="live"><span class="dot"></span>LIVE SANGAM</div>
+
+        <div class="sangam-points">
+          <div class="sangam-point">
+            <i class="fa-solid fa-qrcode"></i>
+            <span>Nearby seekers join through the room QR.</span>
+          </div>
+          <div class="sangam-point">
+            <i class="fa-solid fa-users"></i>
+            <span>Individual and group Jap progress stays visible.</span>
+          </div>
+          <div class="sangam-point">
+            <i class="fa-solid fa-bell"></i>
+            <span>Complete 108-Jap mala milestones together.</span>
+          </div>
+          <div class="sangam-point">
+            <i class="fa-solid fa-sparkles"></i>
+            <span>Verified Sangam activity can contribute to Aura.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="kicker">Sangam</div>
+        <h2>Together in devotion.</h2>
+        <p class="section-copy">
+          Sangam brings real-world group Jap into NaamSetu. A room is created when people are physically together, participants join through QR, and everyone chants as a group while keeping their own contribution visible.
+        </p>
+        <p class="section-copy" style="margin-top:14px;">
+          It is designed to strengthen the feeling of collective practice without turning Sangam into a remote chat room or invite system.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="mission-card reveal">
+        <div>
+          <div class="kicker">Our Mission</div>
+          <h2>Help more seekers stay consistent.</h2>
+          <p class="section-copy">
+            Our long-term mission is to help a large community of seekers make Naam Jap a steady part of everyday life — through simple tools, meaningful progress, social encouragement and a respectful spiritual experience.
+          </p>
+        </div>
+
+        <div class="mission-number">
+          <strong>1M</strong>
+          <span>Seekers — our long-term aspiration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Privacy & Trust</div>
+        <h2>Your sadhana deserves thoughtful handling.</h2>
+        <p>
+          NaamSetu uses local storage and secure cloud services to keep supported progress synchronized and to power features such as accounts, analytics, Sangh and Sangam.
+        </p>
+      </div>
+
+      <div class="trust-grid">
+        <article class="trust reveal">
+          <i class="fa-solid fa-mobile-screen"></i>
+          <h3>Local resilience</h3>
+          <p>Supported Jap activity can be retained locally so temporary connectivity problems do not immediately interrupt your practice.</p>
+        </article>
+
+        <article class="trust reveal">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <h3>Secure cloud sync</h3>
+          <p>Cloud services are used to synchronize supported data and enable account-based features across NaamSetu.</p>
+        </article>
+
+        <article class="trust reveal">
+          <i class="fa-solid fa-user-shield"></i>
+          <h3>User control</h3>
+          <p>NaamSetu provides account deletion inside the app, with additional help available through support when needed.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="founder-note reveal">
+        <div class="om"><i class="fa-solid fa-om"></i></div>
+        <h2 style="font-size:2rem;">Built with devotion, not just features.</h2>
+        <p>
+          NaamSetu is being built step by step with the aim of creating a respectful, modern and useful space for Naam Jap — a place where technology supports the practice instead of becoming the focus.
+        </p>
+        <p><strong style="color:#fff;">Jai Shree Ram. 🙏</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap cta reveal">
+      <div class="kicker">NaamSetu</div>
+      <h2>Connect. Chant. Grow. Together.</h2>
+      <p>
+        Begin your Naam Jap journey, complete your malas and build a more consistent daily practice with NaamSetu.
+      </p>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.naamsetu.app">
+        <i class="fa-brands fa-google-play"></i> Get it on Google Play
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="brand-name"><span>Naam</span><span>Setu</span></div>
+        <div class="footer-copy">connect • chant • grow • together</div>
+        <div class="footer-copy">support@naamsetu.com</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="privacy">Privacy Policy</a>
+        <a href="terms">Terms & Conditions</a>
+        <a href="help">Help & Support</a>
+        <a href="shipping-policy">Shipping Policy</a>
+        <a href="store-policy">Store Policy</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 NaamSetu. All rights reserved. Made with devotion in India.
+    </div>
+  </div>
+</footer>
+
+<script>
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+  }
+
+  document.querySelectorAll(".nav-links a").forEach(a => {
+    a.addEventListener("click", () => {
+      document.querySelector(".nav-links").classList.remove("open");
+    });
+  });
+</script>
 
 </body>
 </html>
