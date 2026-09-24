@@ -1,279 +1,573 @@
-<style>
-    :root {
-        --bg-dark: #0F0E13;
-        --card-bg: #1A1921;
-        --card-border: #2A2835;
-        --accent-yellow: #FFD200;
-        --accent-red: #E63946;
-        --text-main: #FFFFFF;
-        --text-sub: #A0A0AB;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Privacy Policy — NaamSetu</title>
+  <meta name="description" content="Read NaamSetu's Privacy Policy to understand what information we collect, how it is used, how account deletion works, and which third-party services support the app." />
+  <meta name="theme-color" content="#0b0b0d" />
+
+  <meta property="og:title" content="Privacy Policy — NaamSetu" />
+  <meta property="og:description" content="How NaamSetu handles account, sadhana, technical and service-related data." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://naamsetu.com/privacy" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <style>
+    :root{
+      --bg:#0b0b0d;
+      --bg-soft:#101014;
+      --card:#17171c;
+      --border:#2a2a31;
+      --yellow:#ffd600;
+      --orange:#ff7a00;
+      --green:#1bd478;
+      --red:#ef4a4a;
+      --blue:#5d9cff;
+      --text:#ffffff;
+      --muted:#aaaab5;
+      --muted-2:#7d7d88;
+      --max:980px;
     }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Plus Jakarta Sans', sans-serif;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Plus Jakarta Sans",sans-serif;
+      background:
+        radial-gradient(circle at 14% 0%,rgba(255,214,0,.05),transparent 24%),
+        radial-gradient(circle at 88% 14%,rgba(255,122,0,.04),transparent 23%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.7;
+      overflow-x:hidden;
     }
 
-    body {
-        background-color: var(--bg-dark);
-        color: var(--text-main);
-        line-height: 1.6;
+    a{color:var(--yellow);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+
+    /* NAV */
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(11,11,13,.84);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      min-height:74px;
+      display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:11px;
+      text-decoration:none;
+    }
+    .brand img{
+      width:42px;height:42px;border-radius:12px;object-fit:contain;
+    }
+    .brand-name{
+      font-size:1.45rem;font-weight:800;letter-spacing:-.6px;
+    }
+    .brand-name span:first-child{color:#fff}
+    .brand-name span:last-child{color:var(--yellow)}
+    .nav-links{
+      display:flex;align-items:center;gap:22px;
+    }
+    .nav-links a{
+      color:var(--muted);
+      font-size:.9rem;
+      font-weight:700;
+      text-decoration:none;
+    }
+    .nav-links a:hover,.nav-links a.active{color:var(--yellow)}
+    .nav-cta{
+      background:var(--yellow);
+      color:#111!important;
+      padding:10px 16px;
+      border-radius:12px;
+    }
+    .menu-btn{
+      display:none;
+      border:0;
+      background:none;
+      color:var(--yellow);
+      font-size:1.45rem;
+      cursor:pointer;
     }
 
-    /* Plain Header without Back Button */
-    header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1.2rem 8%;
-        background: rgba(15, 14, 19, 0.85);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--card-border);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+    /* HERO */
+    .hero{
+      padding:82px 0 48px;
+      text-align:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,214,0,.24);
+      background:rgba(255,214,0,.07);
+      color:var(--yellow);
+      border-radius:999px;
+      padding:8px 15px;
+      font-size:.76rem;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+      margin-bottom:20px;
+    }
+    h1{
+      font-size:clamp(2.6rem,6vw,4.6rem);
+      line-height:1.02;
+      letter-spacing:-2.4px;
+      margin-bottom:16px;
+    }
+    .hero p{
+      color:var(--muted);
+      max-width:740px;
+      margin:0 auto;
+      font-size:1rem;
+    }
+    .updated{
+      margin-top:16px!important;
+      color:var(--yellow)!important;
+      font-size:.84rem!important;
+      font-weight:700;
     }
 
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        text-decoration: none;
+    /* SUMMARY */
+    .summary{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin:18px auto 46px;
+    }
+    .summary-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      text-align:center;
+    }
+    .summary-card i{
+      color:var(--yellow);
+      font-size:1.2rem;
+      margin-bottom:9px;
+    }
+    .summary-card strong{
+      display:block;
+      font-size:.95rem;
+      margin-bottom:4px;
+    }
+    .summary-card span{
+      color:var(--muted);
+      font-size:.8rem;
     }
 
-    .logo-img {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        object-fit: contain;
+    /* POLICY */
+    main{padding-bottom:76px}
+    .policy-card{
+      background:linear-gradient(180deg,var(--card),#141419);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:28px;
+      margin-bottom:18px;
+    }
+    .policy-card h2{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--yellow);
+      font-size:1.28rem;
+      margin-bottom:14px;
+    }
+    .policy-card h2 i{
+      width:34px;height:34px;border-radius:10px;
+      display:grid;place-items:center;
+      background:rgba(255,214,0,.09);
+      font-size:.95rem;
+    }
+    .policy-card h3{
+      font-size:1rem;
+      margin:20px 0 8px;
+    }
+    .policy-card p{
+      color:var(--muted);
+      font-size:.93rem;
+      margin-bottom:12px;
+    }
+    .policy-card ul{
+      padding-left:20px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    .policy-card li{margin-bottom:9px}
+    .policy-card strong{color:var(--text)}
+    .note{
+      background:rgba(255,214,0,.06);
+      border:1px solid rgba(255,214,0,.16);
+      border-radius:14px;
+      padding:14px 16px;
+      color:var(--muted);
+      font-size:.87rem;
+      margin-top:14px;
+    }
+    code{
+      background:rgba(255,214,0,.09);
+      color:var(--yellow);
+      padding:2px 6px;
+      border-radius:5px;
+      font-size:.88em;
     }
 
-    .logo-text {
-        font-size: 1.5rem;
-        font-weight: 800;
+    .contact-box{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .contact-item{
+      background:#111115;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:14px;
+    }
+    .contact-item span{
+      display:block;
+      color:var(--muted-2);
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      margin-bottom:3px;
+    }
+    .contact-item strong,.contact-item a{
+      font-size:.86rem;
+      word-break:break-word;
     }
 
-    .logo-text .naam { color: var(--accent-red); }
-    .logo-text .setu { color: #FFFFFF; }
-
-    /* Main Content Wrapper */
-    .container {
-        max-width: 900px;
-        margin: 3rem auto;
-        padding: 0 5%;
+    footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:38px 0 26px;
+    }
+    .footer-top{
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+    }
+    .footer-copy{
+      color:var(--muted);
+      font-size:.84rem;
+      margin-top:8px;
+    }
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px 20px;
+      justify-content:flex-end;
+    }
+    .footer-links a{
+      color:var(--muted);
+      font-size:.84rem;
+      text-decoration:none;
+    }
+    .footer-links a:hover{color:var(--yellow)}
+    .copyright{
+      color:var(--muted-2);
+      border-top:1px solid rgba(255,255,255,.05);
+      margin-top:26px;
+      padding-top:18px;
+      font-size:.77rem;
     }
 
-    .page-header {
-        margin-bottom: 2.5rem;
-        border-bottom: 1px solid var(--card-border);
-        padding-bottom: 1.5rem;
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:.6s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none;
     }
 
-    h1 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 0.5rem;
+    @media(max-width:780px){
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:74px;left:0;right:0;
+        background:rgba(11,11,13,.98);
+        border-bottom:1px solid var(--border);
+        padding:18px 20px;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .nav-links.open{display:flex}
+      .menu-btn{display:block}
+      .nav-cta{width:100%;text-align:center}
+      .summary{grid-template-columns:1fr}
+      .contact-box{grid-template-columns:1fr}
+      .hero{padding-top:62px}
     }
 
-    .last-updated {
-        color: var(--accent-yellow);
-        font-size: 0.9rem;
-        font-weight: 600;
+    @media(max-width:500px){
+      .wrap{width:min(var(--max),calc(100% - 28px))}
+      .policy-card{padding:21px}
+      h1{letter-spacing:-1.7px}
     }
+  </style>
+</head>
 
-    .intro-text {
-        color: var(--text-sub);
-        font-size: 1.05rem;
-        margin-bottom: 2rem;
-    }
+<body>
 
-    section {
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: 16px;
-        padding: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    h2 {
-        color: var(--accent-yellow);
-        font-size: 1.4rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    h3 {
-        color: var(--text-main);
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin: 1.2rem 0 0.5rem;
-    }
-
-    p {
-        color: var(--text-sub);
-        font-size: 0.95rem;
-        margin-bottom: 1rem;
-    }
-
-    ul {
-        padding-left: 1.2rem;
-        color: var(--text-sub);
-        font-size: 0.95rem;
-    }
-
-    li {
-        margin-bottom: 0.6rem;
-    }
-
-    li strong {
-        color: var(--text-main);
-    }
-
-    code {
-        background: rgba(255, 210, 0, 0.1);
-        color: var(--accent-yellow);
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-size: 0.9em;
-    }
-
-    a {
-        color: var(--accent-yellow);
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-        background: var(--bg-dark);
-        border-top: 1px solid var(--card-border);
-        padding: 2rem 8%;
-        text-align: center;
-        color: #666;
-        font-size: 0.85rem;
-    }
-
-    @media (max-width: 768px) {
-        h1 { font-size: 2rem; }
-        section { padding: 1.5rem; }
-    }
-</style>
-<!-- Header (Plain, No Back Button) -->
 <header>
-    <div class="logo-container">
-        <img src="logo.png" alt="NaamSetu Logo" class="logo-img">
-        <div class="logo-text"><span class="naam">Naam</span><span class="setu">Setu</span></div>
-    </div>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="NaamSetu Home">
+      <img src="logo.png" alt="NaamSetu logo" />
+      <div class="brand-name"><span>Naam</span><span>Setu</span></div>
+    </a>
+
+    <button class="menu-btn" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="about">About</a>
+      <a class="active" href="privacy">Privacy</a>
+      <a href="terms">Terms</a>
+      <a href="help">Support</a>
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.naamsetu.app">Get the App</a>
+    </nav>
+  </div>
 </header>
 
-<!-- Main Body -->
-<div class="container">
-    <div class="page-header">
-        <h1>Privacy Policy</h1>
-        <div class="last-updated"><i class="far fa-calendar-alt"></i> Last Updated: September 14, 2026</div>
+<section class="hero">
+  <div class="wrap reveal">
+    <div class="eyebrow"><i class="fa-solid fa-shield-halved"></i> Privacy at NaamSetu</div>
+    <h1>Privacy Policy</h1>
+    <p>
+      This Privacy Policy explains what information NaamSetu may collect, how it is used, which third-party services support the app, and the choices available to you.
+    </p>
+    <p class="updated"><i class="fa-regular fa-calendar"></i> Last updated: September 24, 2026</p>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <div class="summary reveal">
+    <div class="summary-card">
+      <i class="fa-solid fa-mobile-screen"></i>
+      <strong>Local resilience</strong>
+      <span>Supported Jap activity can be retained locally before sync.</span>
+    </div>
+    <div class="summary-card">
+      <i class="fa-solid fa-cloud-arrow-up"></i>
+      <strong>Secure cloud services</strong>
+      <span>Firebase supports accounts, sync and community features.</span>
+    </div>
+    <div class="summary-card">
+      <i class="fa-solid fa-user-shield"></i>
+      <strong>User control</strong>
+      <span>Account deletion is available from within NaamSetu.</span>
+    </div>
+  </div>
+
+  <section class="policy-card reveal">
+    <h2><i class="fa-solid fa-database"></i> 1. Information We Collect</h2>
+    <p>NaamSetu may collect and process information needed to provide the app, synchronize your progress, improve reliability, support community features and manage subscriptions.</p>
+
+    <h3>A. Account Information</h3>
+    <ul>
+      <li><strong>Google Sign-In information:</strong> When you sign in with Google, we may receive your name, email address and profile picture as provided through Firebase Authentication.</li>
+      <li><strong>User identifiers:</strong> Firebase-generated identifiers are used to distinguish accounts and connect your app data with the correct user profile.</li>
+    </ul>
+
+    <h3>B. Sadhana & App Activity</h3>
+    <ul>
+      <li><strong>Jap and progress data:</strong> Jap counts, mala progress, streak information, Aura, coins, card progress and related sadhana statistics.</li>
+      <li><strong>Community activity:</strong> Profile, follow relationships, leaderboard-related data and supported Sangh or Sangam participation.</li>
+      <li><strong>Content interaction:</strong> Supported story, audio or video interaction data where needed to provide or resume the experience.</li>
+    </ul>
+
+    <h3>C. Device & Technical Information</h3>
+    <ul>
+      <li><strong>Technical information:</strong> Device model, operating system version, app version, network state and diagnostic information.</li>
+      <li><strong>Crash and performance information:</strong> Firebase Crashlytics may process diagnostic data when crashes or app errors occur.</li>
+      <li><strong>Advertising-related information:</strong> Where ads are enabled, Google AdMob may process device and advertising-related identifiers in accordance with Google’s own policies and user consent settings.</li>
+    </ul>
+  </section>
+
+  <section class="policy-card reveal">
+    <h2><i class="fa-solid fa-gears"></i> 2. How We Use Information</h2>
+    <ul>
+      <li><strong>Core app functionality:</strong> To provide Jap counting, 108-count mala cycles, streaks, analytics and progress tracking.</li>
+      <li><strong>Sync and recovery:</strong> To synchronize supported account and progress data with Firebase when connectivity is available.</li>
+      <li><strong>Community features:</strong> To operate Sangh, profiles, following, leaderboard functions and Sangam.</li>
+      <li><strong>Rewards and progression:</strong> To manage Aura, coins, Divine Cards and supported in-app progression.</li>
+      <li><strong>Notifications:</strong> To send supported reminders, service notices and community or app updates through Firebase Cloud Messaging.</li>
+      <li><strong>Security and reliability:</strong> To detect abuse, investigate failures, protect app integrity and improve stability.</li>
+    </ul>
+
+    <div class="note">
+      NaamSetu uses local storage for supported app data and Firebase-based cloud services for synchronization and online features. Some features therefore require an internet connection.
+    </div>
+  </section>
+
+  <section class="policy-card reveal">
+    <h2><i class="fa-solid fa-puzzle-piece"></i> 3. Third-Party Services</h2>
+    <p>NaamSetu uses third-party services that may process information under their own privacy policies and terms.</p>
+
+    <ul>
+      <li><strong>Firebase by Google:</strong> Used for services such as Authentication, Firestore, Cloud Functions, Cloud Messaging, Crashlytics, Storage and App Check, depending on the feature being used.</li>
+      <li><strong>Google AdMob:</strong> NaamSetu integrates AdMob for advertising. When advertising is enabled, Google may process information for ad delivery, measurement, frequency control, fraud prevention and related purposes. NaamSetu supports <code>app-ads.txt</code> for publisher transparency.</li>
+      <li><strong>Google Play Billing:</strong> Used to process supported subscriptions and in-app purchases. NaamSetu does not directly receive or store your complete payment-card or bank-account details.</li>
+      <li><strong>Google Play Integrity:</strong> Used to help protect the app and backend services from abuse, tampering and fraudulent activity.</li>
+      <li><strong>Google Install Referrer:</strong> May be used to understand install attribution and referral information.</li>
+      <li><strong>Media providers:</strong> Some audio or video experiences may rely on external media services or embedded players, which can process data under their own terms.</li>
+    </ul>
+
+    <p>
+      You can review Google’s privacy information at
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.
+    </p>
+  </section>
+
+  <section class="policy-card reveal">
+    <h2><i class="fa-solid fa-credit-card"></i> 4. Premium Subscriptions & Billing</h2>
+    <p>NaamSetu may offer optional Premium plans through Google Play Billing.</p>
+
+    <ul>
+      <li><strong>Billing:</strong> Subscription purchases are processed by Google Play using the Google account connected to the Play Store.</li>
+      <li><strong>Management and cancellation:</strong> You can manage or cancel an active subscription through the subscription-management option provided in NaamSetu or directly through Google Play.</li>
+      <li><strong>Access after cancellation:</strong> Cancelling auto-renewal generally does not immediately end an already-paid billing period. Premium access continues until the entitlement expiry time provided by Google Play, subject to Google Play’s billing rules.</li>
+      <li><strong>Refunds:</strong> Refund eligibility and processing are governed by Google Play’s applicable policies. NaamSetu does not directly process raw payment-card refunds.</li>
+      <li><strong>Billing support:</strong> For app-specific subscription assistance, contact <a href="mailto:support@naamsetu.com">support@naamsetu.com</a>.</li>
+    </ul>
+
+    <p>
+      Google Play refund information:
+      <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener noreferrer">Google Play Refund Policy</a>.
+    </p>
+  </section>
+
+  <section class="policy-card reveal">
+    <h2><i class="fa-solid fa-trash-can"></i> 5. Data Retention & Account Deletion</h2>
+    <ul>
+      <li><strong>Retention:</strong> Account and progress information may be retained while your account is active and as otherwise needed for legitimate service, security or legal purposes.</li>
+      <li><strong>In-app deletion:</strong> NaamSetu provides an account-deletion option inside the app. Using it initiates deletion of the account and associated supported cloud data handled by NaamSetu.</li>
+      <li><strong>Support:</strong> If you cannot access the in-app deletion flow, you may contact <a href="mailto:support@naamsetu.com">support@naamsetu.com</a> for assistance.</li>
+      <li><strong>Local app data:</strong> Local data stored by the app can also be removed by deleting app storage/data from Android settings or uninstalling the app. Clearing only cache may not remove all locally stored app data.</li>
+    </ul>
+  </section>
+
+  <section class="policy-card reveal">
+    <h2><i class="fa-solid fa-child-reaching"></i> 6. Children’s Privacy</h2>
+    <p>
+      NaamSetu is intended for a general audience. We do not knowingly seek to collect personal information from children in circumstances where parental consent is legally required. If you believe a child has provided personal information without appropriate consent, please contact us so we can review the matter and take appropriate action.
+    </p>
+  </section>
+
+  <section class="policy-card reveal">
+    <h2><i class="fa-solid fa-lock"></i> 7. Security</h2>
+    <p>
+      NaamSetu uses technical and organizational safeguards intended to protect supported app and account data. These include secure authentication, encrypted network connections, Firebase security controls, app-integrity protections and encrypted local preferences where used by the app.
+    </p>
+    <p>
+      No method of electronic storage or transmission can be guaranteed to be completely secure, so we cannot promise absolute security.
+    </p>
+  </section>
+
+  <section class="policy-card reveal">
+    <h2><i class="fa-solid fa-scale-balanced"></i> 8. Your Choices</h2>
+    <ul>
+      <li>You can manage your Google account permissions through your Google account settings.</li>
+      <li>You can manage notification permissions through Android settings.</li>
+      <li>You can manage or cancel subscriptions through Google Play.</li>
+      <li>You can delete your NaamSetu account through the in-app account-deletion option.</li>
+      <li>Where applicable, advertising choices and consent controls are provided through Google-supported consent and device settings.</li>
+    </ul>
+  </section>
+
+  <section class="policy-card reveal">
+    <h2><i class="fa-solid fa-file-pen"></i> 9. Changes to This Policy</h2>
+    <p>
+      We may update this Privacy Policy when NaamSetu changes, new features or services are introduced, or legal and platform requirements change. When we make material updates, the “Last updated” date on this page will be revised.
+    </p>
+  </section>
+
+  <section class="policy-card reveal">
+    <h2><i class="fa-solid fa-envelope"></i> 10. Contact Us</h2>
+    <p>If you have a privacy question, data request or account-deletion issue, you can contact NaamSetu using the details below.</p>
+
+    <div class="contact-box">
+      <div class="contact-item">
+        <span>Publisher</span>
+        <strong>NaamSetu</strong>
+      </div>
+      <div class="contact-item">
+        <span>Email</span>
+        <a href="mailto:support@naamsetu.com">support@naamsetu.com</a>
+      </div>
+      <div class="contact-item">
+        <span>Website</span>
+        <a href="https://naamsetu.com">naamsetu.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="brand-name"><span>Naam</span><span>Setu</span></div>
+        <div class="footer-copy">connect • chant • grow • together</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="about">About Us</a>
+        <a href="terms">Terms & Conditions</a>
+        <a href="help">Help & Support</a>
+        <a href="shipping-policy">Shipping Policy</a>
+        <a href="store-policy">Store Policy</a>
+      </div>
     </div>
 
-    <p class="intro-text">Welcome to <strong>NaamSetu</strong>. Your privacy is paramount to us. This Privacy Policy explains how we collect, use, and protect your information when you use our mobile application ("App"). By using NaamSetu, you agree to the terms outlined in this policy.</p>
-
-    <section>
-        <h2><i class="fas fa-database"></i> 1. Information We Collect</h2>
-        <p>To provide a personalized spiritual experience, we collect the following types of information:</p>
-        
-        <h3>A. Personal Data</h3>
-        <ul>
-            <li><strong>Account Information:</strong> If you sign in via Google or Email (Firebase Authentication), we collect your name, email address, and profile picture to manage your account and synchronize your progress.</li>
-            <li><strong>User Identifiers:</strong> Unique IDs generated by Firebase to distinguish your account across devices.</li>
-        </ul>
-
-        <h3>B. Usage & Progress Data</h3>
-        <ul>
-            <li><strong>Sadhana Analytics:</strong> Jap counts, mantra progress, streaks, level progress, and Aura points.</li>
-            <li><strong>Digital Assets:</strong> Information regarding virtual rewards like Divine Cards, virtual coins, and boosters earned or purchased within the app.</li>
-            <li><strong>Interaction Data:</strong> Stories read, audio/video playback progress (via YouTube/ExoPlayer), and participation in the Global Sangh Leaderboard.</li>
-        </ul>
-
-        <h3>C. Device & Technical Information</h3>
-        <ul>
-            <li><strong>Identifiers:</strong> Device ID, IP address, and Advertising ID (Android AAID).</li>
-            <li><strong>System Logs:</strong> OS version, device model, app performance logs (Firebase Crashlytics), and network connectivity status.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2><i class="fas fa-cogs"></i> 2. How We Use Information</h2>
-        <p>We use the collected data for the following purposes:</p>
-        <ul>
-            <li><strong>Core Features:</strong> To power the Digital Jap Counter, 108 Cycle Mala, and Streak Tracking.</li>
-            <li><strong>Local Data Architecture:</strong> For your privacy and offline convenience, core Jap counts and Sadhana progress are stored locally on your device using a <strong>Room Database</strong>. This data is only synced to our secure cloud servers (Firebase) when an internet connection is available to enable cross-device synchronization and Leaderboard participation.</li>
-            <li><strong>Gamification:</strong> To manage the Global Sangh Leaderboard and allocate Aura points and Divine Cards.</li>
-            <li><strong>Personalization:</strong> To recommend spiritual content and stories based on your interests.</li>
-            <li><strong>Communications:</strong> To send push notifications regarding streaks, challenges, or administrative updates (Firebase Cloud Messaging).</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2><i class="fas fa-shield-alt"></i> 3. Third-Party Services & AdMob Compliance</h2>
-        <p>NaamSetu integrates several industry-standard SDKs that may collect data independently:</p>
-        <ul>
-            <li><strong>Google AdMob:</strong> We use AdMob to serve advertisements. AdMob may use your Advertising ID and device parameters for ad personalization, frequency capping, and fraud prevention. We support <code>app-ads.txt</code> verification for transparency.</li>
-            <li><strong>Firebase (by Google):</strong> Used for Authentication, Firestore (database), Cloud Messaging, and Analytics. Firebase helps us understand app usage and keep your data synced.</li>
-            <li><strong>Google Play Billing:</strong> All financial transactions for virtual assets and subscriptions are handled securely through the official Google Play Billing system. <strong>We do not store or process raw credit card or bank details on our servers.</strong></li>
-            <li><strong>Play Integrity API:</strong> To ensure the app is running in a secure environment and to prevent fraud.</li>
-            <li><strong>Install Referrer:</strong> To attribute app installs to marketing campaigns or referrals.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2><i class="fas fa-credit-card"></i> 4. Subscription Management & Cancellation</h2>
-        <p>NaamSetu offers optional premium subscription plans to enhance your spiritual experience:</p>
-        <ul>
-            <li><strong>Weekly Premium Subscription:</strong> Subscriptions are processed securely through Google Play Billing and provide exclusive benefits including an ad-free experience, exclusive sacred Jap circle skins, priority support, and bonus Aura points per Jap cycle.</li>
-            <li><strong>In-App Subscription Management:</strong> Users can view, manage, or cancel their active subscription at any time directly within the App by navigating to <code>Settings &rarr; Manage Subscription &rarr; Cancel Subscription</code>, which securely opens the official Google Play Subscription Management interface.</li>
-            <li><strong>Access Duration Upon Cancellation:</strong> If you cancel your subscription, your premium benefits will remain fully active until the end of your current billing period. Once the billing period expires, your account will transition to the free tier without auto-renewal.</li>
-            <li><strong>Refund Policy:</strong> All subscription payments and refunds are handled exclusively by Google Play in accordance with the official <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener noreferrer">Google Play Refund Policy</a>. NaamSetu does not process financial refunds directly.</li>
-            <li><strong>Billing Support:</strong> For any billing or subscription assistance, please reach out to our support team at <a href="mailto:support@naamsetu.com">support@naamsetu.com</a>.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2><i class="fas fa-trash-alt"></i> 5. Data Retention & Deletion</h2>
-        <ul>
-            <li><strong>Retention:</strong> We retain your progress and profile data as long as your account is active. Local Room DB data remains on your device until you clear the app cache or uninstall the app.</li>
-            <li><strong>Deletion:</strong> You can request the deletion of your account and associated cloud data at any time by contacting us at <strong>support@naamsetu.com</strong>. You can also reset your local data via the App Settings menu.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2><i class="fas fa-child"></i> 6. Children's Privacy</h2>
-        <p>NaamSetu is a spiritual tool intended for a general audience. We do not knowingly collect personal information from children under the age of 13 (or 16 in certain jurisdictions). If you believe a child has provided us with personal data without parental consent, please contact us, and we will take immediate steps to delete such information.</p>
-    </section>
-
-    <section>
-        <h2><i class="fas fa-lock"></i> 7. Security</h2>
-        <p>We implement robust security measures, including <strong>Encrypted SharedPreferences</strong> for sensitive local data and industry-standard SSL/TLS encryption for all network requests (Retrofit/Firebase) to protect your information from unauthorized access.</p>
-    </section>
-
-    <section>
-        <h2><i class="fas fa-envelope"></i> 8. Contact Information</h2>
-        <p>If you have any questions or concerns about this Privacy Policy, please reach out to our team:</p>
-        <p style="margin-top: 10px;">
-            <strong>App Publisher:</strong> NaamSetu Dev Team<br>
-            <strong>Support Email:</strong> <a href="mailto:support@naamsetu.com">support@naamsetu.com</a><br>
-            <strong>Website:</strong> <a href="https://naamsetu.com">www.naamsetu.com</a>
-        </p>
-    </section>
-</div>
-
-<!-- Footer -->
-<footer>
-    &copy; 2026 NaamSetu. All rights reserved. <br>
-    This policy is designed to be compliant with Google Play Developer Program Policies.
+    <div class="copyright">
+      © 2026 NaamSetu. All rights reserved.
+    </div>
+  </div>
 </footer>
+
+<script>
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+  }
+
+  document.querySelectorAll(".nav-links a").forEach(a => {
+    a.addEventListener("click", () => {
+      document.querySelector(".nav-links").classList.remove("open");
+    });
+  });
+</script>
+
+</body>
+</html>
