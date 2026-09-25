@@ -1,4 +1,3 @@
-
 [
   {
     "relation": [
@@ -8,7 +7,7 @@
       "namespace": "android_app",
       "package_name": "com.naamsetu.app",
       "sha256_cert_fingerprints": [
-        "9F:7A:0A:8F:EB:09:96:18:F5:D6:BD:53:B8:16:1B:8B:C9:D8:ED:E1:9C:C4:F3:84:5C:20:99:E6:47:9A:D6:7D"
+        "E3:96:0C:57:86:BD:DD:90:D7:F9:57:5E:AC:2F:93:00:1E:37:1A:AD:70:72:5D:70:F1:31:8B:AD:50:CA:27:F5"
       ]
     }
   }
